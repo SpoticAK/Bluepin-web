@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { ChevronRight } from "lucide-react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 export interface FeatureCarouselProps {
   title: string;
   subtitle: string;
-  images: string[];
+  images: Array<string | StaticImageData>;
   iconColor: string;
   titleGradient?: string;
   glowColor: string;
@@ -57,7 +57,7 @@ export default function FeatureCarousel({
             <div className="relative w-64 md:w-80 aspect-9/19.5 bg-slate-900 rounded-[2.5rem] border-8 border-slate-900 dark:border-slate-800 shadow-2xl overflow-hidden z-10 shadow-black/5">
               {images.map((src, idx) => (
                 <motion.div
-                  key={src}
+                  key={typeof src === "string" ? src : src.src}
                   initial={false}
                   animate={{
                     opacity: currentSlide === idx ? 1 : 0,
