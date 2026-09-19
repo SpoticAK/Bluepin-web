@@ -380,13 +380,3 @@ For questions about these Terms, contact:
 **Email:** marketing@bluepin.in
 
 ---
-
-## 24. Related Bluepin Policies
-
-Please also review:
-
-- **Bluepin Privacy Policy**
-- **Bluepin Medical / Health Disclaimer**
-- **Bluepin AI Output Disclaimer**
-- **Bluepin Health Data Consent Notice**
-- **Bluepin Cookie & Tracking Policy**

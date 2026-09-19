@@ -499,21 +499,7 @@ Bluepin will address privacy grievances within the time period required under ap
 
 ---
 
-## 19. Relationship With Other Bluepin Policies
-
-This Privacy Policy should be read together with:
-
-- **Bluepin Terms of Service**
-- **Bluepin Health Data Consent Notice**
-- **Bluepin Medical / Health Disclaimer**
-- **Bluepin AI Output Disclaimer**
-- **Bluepin Cookie & Tracking Policy**
-
-These documents provide additional information about specific aspects of Bluepin's service and privacy practices.
-
----
-
-## 20. Applicable Law
+## 19. Applicable Law
 
 Bluepin handles personal information in accordance with applicable data-protection, information-technology, consumer-protection, and other applicable laws and regulations in India.
 
