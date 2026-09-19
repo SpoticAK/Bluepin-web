@@ -7,6 +7,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import bluepinLogo from "@/public/Bluepin.png";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -43,7 +44,7 @@ export default function Navbar() {
             className="flex items-center gap-3"
           >
             <Image
-              src="/Bluepin.png"
+              src={bluepinLogo}
               alt="Bluepin Logo"
               className="size-8 object-contain"
               width={32}

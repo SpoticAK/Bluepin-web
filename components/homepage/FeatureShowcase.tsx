@@ -1,5 +1,11 @@
 import FeatureCarousel from "./FeatureCarousel";
 import GetStartedButton from "./GetStartedButton";
+import glucose1 from "@/public/glucose1.webp";
+import glucose2 from "@/public/glucose2.webp";
+import glucose3 from "@/public/glucose3.webp";
+import health1 from "@/public/health1.webp";
+import health2 from "@/public/health2.webp";
+import health3 from "@/public/health3.webp";
 
 export default function FeatureShowcase() {
   return (
@@ -19,7 +25,7 @@ export default function FeatureShowcase() {
         <FeatureCarousel
           title="Glucose Tracking"
           subtitle="Record your glucose daily manually or by uploading pics of your glucometers. See your glucose behaviour with graph trends and Bluepin-AI powered Insights :)"
-          images={["/glucose1.webp", "/glucose2.webp", "/glucose3.webp"]}
+          images={[glucose1, glucose2, glucose3]}
           iconColor="text-blue-500"
           titleGradient="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300 pb-1"
           stepNumber={1}
@@ -32,7 +38,7 @@ export default function FeatureShowcase() {
         <FeatureCarousel
           title="Health Canvas"
           subtitle="Upload your health reports and see how your organ health changes over time. Uncover patterns with BluePin Intelligence to know which areas need help :)"
-          images={["/health1.webp", "/health2.webp", "/health3.webp"]}
+          images={[health1, health2, health3]}
           iconColor="text-emerald-500"
           titleGradient="text-transparent bg-clip-text bg-linear-to-r from-emerald-600 to-teal-500 dark:from-emerald-400 dark:to-teal-300 pb-1"
           stepNumber={2}
