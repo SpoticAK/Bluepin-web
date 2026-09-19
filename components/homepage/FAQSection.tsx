@@ -124,7 +124,10 @@ const faqSchema = {
 
 export default function FAQSection() {
   return (
-    <section className="py-10 md:py-16 bg-white/60 dark:bg-theme-card/60 backdrop-blur-2xl border-t border-theme-border/40 relative z-10">
+    <section
+      id="faq"
+      className="py-10 md:py-16 bg-white/60 dark:bg-theme-card/60 backdrop-blur-2xl border-t border-theme-border/40 relative z-10 scroll-mt-20"
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
