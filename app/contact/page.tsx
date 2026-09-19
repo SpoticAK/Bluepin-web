@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Mail, MapPin } from "lucide-react"; // add Send back when the contact form is re-enabled
+import { Mail, MapPin, Send } from "lucide-react";
 import AmbientCurves from "@/components/homepage/AmbientCurves";
-// import ContactForm from "./ContactForm"; // re-enable with the contact form section below
+import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact Bluepin | Get in touch",
@@ -44,57 +44,51 @@ export default function ContactPage() {
       <AmbientCurves />
 
       <main className="relative">
-        {/* Hero */}
-        <section className="pt-12 md:pt-16 pb-8 md:pb-12 px-6 md:px-12 max-w-8xl mx-auto relative z-10">
-          <div className="max-w-3xl">
-            <p className="text-sm md:text-base font-poppins font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-4">
-              Contact
-            </p>
-            <h1 className="text-5xl md:text-7xl lg:text-[5rem] font-display tracking-tight text-theme-text leading-[1.05] mb-6">
-              Let&apos;s talk.
-            </h1>
-            <p className="text-xl md:text-2xl font-display text-theme-text max-w-2xl leading-relaxed font-medium">
-              Questions, feedback, or ideas for Bluepin — we would love to hear
-              from you. Reach out and we&apos;ll get back to you soon.
-            </p>
-          </div>
-        </section>
-
-        {/* Contact info */}
-        <section className="py-10 md:py-16 bg-white/60 dark:bg-theme-card/60 backdrop-blur-2xl border-t border-theme-border/40 relative z-10">
-          <div className="max-w-8xl mx-auto px-6 md:px-12">
-            <h2 className="text-4xl md:text-5xl font-display tracking-tight text-theme-text mb-12 font-bold">
-              Contact details
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6 max-w-5xl">
+        {/* Hero + contact details */}
+        <section className="pt-12 md:pt-16 pb-8 md:pb-10 px-6 md:px-12 max-w-8xl mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            <div>
+              <p className="text-sm md:text-base font-poppins font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-4">
+                Contact
+              </p>
+              <h1 className="text-5xl md:text-7xl lg:text-[5rem] font-display tracking-tight text-theme-text leading-[1.05] mb-6">
+                Let&apos;s talk.
+              </h1>
+              <p className="text-xl md:text-2xl font-display text-theme-text max-w-2xl leading-relaxed font-medium">
+                Questions, feedback, or ideas for Bluepin — we would love to hear
+                from you. Reach out and we&apos;ll get back to you soon.
+              </p>
+            </div>
+            <div className="flex flex-col gap-4">
               {contactCards.map((card) => (
                 <a
                   key={card.title}
                   href={card.href}
                   target={card.href.startsWith("http") ? "_blank" : undefined}
                   rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="rounded-2xl border border-theme-border/60 bg-white/40 dark:bg-theme-card/30 backdrop-blur-xl shadow-sm p-7 sm:p-8 flex flex-col gap-4 hover:bg-white/70 dark:hover:bg-theme-card/70 transition-colors"
+                  className="rounded-2xl border border-theme-border/60 bg-white/40 dark:bg-theme-card/30 backdrop-blur-xl shadow-sm p-6 flex items-start gap-5 hover:bg-white/70 dark:hover:bg-theme-card/70 transition-colors"
                 >
                   <div
-                    className={`w-12 h-12 rounded-xl flex items-center justify-center ${card.bg} ${card.color}`}
+                    className={`w-12 h-12 rounded-xl flex items-center justify-center ${card.bg} ${card.color} shrink-0`}
                   >
                     <card.icon className="w-6 h-6" strokeWidth={2.25} />
                   </div>
-                  <h3 className="text-xl font-display font-semibold text-theme-text">
-                    {card.title}
-                  </h3>
-                  <p className="text-lg text-theme-text font-medium break-words">
-                    {card.value}
-                  </p>
-                  <p className="text-theme-text-sec font-medium">{card.note}</p>
+                  <div>
+                    <h3 className="text-xl font-display font-semibold text-theme-text">
+                      {card.title}
+                    </h3>
+                    <p className="text-lg text-theme-text font-medium break-words">
+                      {card.value}
+                    </p>
+                    <p className="text-theme-text-sec font-medium">{card.note}</p>
+                  </div>
                 </a>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Contact section / form — hidden for now */}
-        {/*
+        {/* Contact form */}
         <section className="py-10 md:py-16 bg-white/60 dark:bg-theme-card/60 backdrop-blur-2xl border-t border-theme-border/40 relative z-10">
           <div className="max-w-8xl mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-12 items-start">
             <div>
@@ -114,7 +108,6 @@ export default function ContactPage() {
             <ContactForm />
           </div>
         </section>
-        */}
       </main>
     </div>
   );
