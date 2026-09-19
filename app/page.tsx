@@ -3,6 +3,7 @@ import {
   FeatureShowcase,
   MultiOrganProblem,
   HowItWorks,
+  FAQSection,
 } from "@/components/homepage";
 import AmbientCurves from "@/components/homepage/AmbientCurves";
 
@@ -15,6 +16,7 @@ export default function WelcomeScreen() {
         <FeatureShowcase />
         <MultiOrganProblem />
         <HowItWorks />
+        <FAQSection />
       </main>
     </div>
   );
