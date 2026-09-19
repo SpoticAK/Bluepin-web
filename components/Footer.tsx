@@ -1,12 +1,15 @@
 import Image from "next/image";
 import { Shield } from "lucide-react";
 import FooterLegalLinks from "./FooterLegalLinks";
+import { getLegalDocContent } from "@/lib/legalContent";
 
 function getYear() {
   return new Date().getFullYear();
 }
 
 export default function Footer() {
+  const { terms, privacy } = getLegalDocContent();
+
   return (
     <footer className="bg-white/90 dark:bg-theme-card/90 backdrop-blur-3xl border-t border-theme-border relative z-10">
       <div className="max-w-8xl mx-auto px-6 md:px-12 pt-16 pb-12">
@@ -35,7 +38,7 @@ export default function Footer() {
             />
             <span>&copy; {getYear()} Bluepin. All rights reserved.</span>
           </div>
-          <FooterLegalLinks />
+          <FooterLegalLinks termsContent={terms} privacyContent={privacy} />
         </div>
       </div>
     </footer>

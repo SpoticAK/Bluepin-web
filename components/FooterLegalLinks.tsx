@@ -3,7 +3,15 @@
 import { useState } from "react";
 import { LegalDocsModal } from "./LegalDocsModal";
 
-export default function FooterLegalLinks() {
+interface FooterLegalLinksProps {
+  termsContent: string;
+  privacyContent: string;
+}
+
+export default function FooterLegalLinks({
+  termsContent,
+  privacyContent,
+}: FooterLegalLinksProps) {
   const [legalModalOpen, setLegalModalOpen] = useState(false);
   const [legalTab, setLegalTab] = useState<"terms" | "privacy">("terms");
 
@@ -33,6 +41,8 @@ export default function FooterLegalLinks() {
         isOpen={legalModalOpen}
         onClose={() => setLegalModalOpen(false)}
         defaultTab={legalTab}
+        termsContent={termsContent}
+        privacyContent={privacyContent}
       />
     </>
   );

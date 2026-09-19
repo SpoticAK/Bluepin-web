@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin } from "lucide-react"; // add Send back when the contact form is re-enabled
 import AmbientCurves from "@/components/homepage/AmbientCurves";
-import ContactForm from "./ContactForm";
+// import ContactForm from "./ContactForm"; // re-enable with the contact form section below
 
 export const metadata: Metadata = {
   title: "Contact Bluepin | Get in touch",
@@ -93,7 +93,8 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Contact section / form */}
+        {/* Contact section / form — hidden for now */}
+        {/*
         <section className="py-10 md:py-16 bg-white/60 dark:bg-theme-card/60 backdrop-blur-2xl border-t border-theme-border/40 relative z-10">
           <div className="max-w-8xl mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-12 items-start">
             <div>
@@ -113,6 +114,7 @@ export default function ContactPage() {
             <ContactForm />
           </div>
         </section>
+        */}
       </main>
     </div>
   );
