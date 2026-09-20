@@ -42,24 +42,24 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Bluepin | AI Health Companion for Medical Reports & Glucose Tracking",
+  title: "Bluepin | Diabetes Management with personalised AI insights",
   description:
-    "Bluepin is your AI-powered health companion. Organize medical reports, track glucose, analyze biomarkers, and unlock personalized AI health insights seamlessly.",
+    "Bluepin is a diabetes management app with personalised AI insights that track your glucose and analyse your health reports to care for your health as a whole.",
   openGraph: {
     type: "website",
     url: "https://bluepin.in/",
     title:
-      "Bluepin | AI Health Companion for Medical Reports & Glucose Tracking",
+      "Bluepin | Diabetes Management with personalised AI insights",
     description:
-      "Bluepin is your AI-powered health companion. Organize medical reports, track glucose, analyze biomarkers, and unlock personalized AI health insights seamlessly.",
+      "Bluepin is a diabetes management app with personalised AI insights that track your glucose and analyse your health reports to care for your health as a whole.",
     images: ["https://bluepin.in/Bluepin.png"],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Bluepin | AI Health Companion for Medical Reports & Glucose Tracking",
+      "Bluepin | Diabetes Management with personalised AI insights",
     description:
-      "Bluepin is your AI-powered health companion. Organize medical reports, track glucose, analyze biomarkers, and unlock personalized AI health insights seamlessly.",
+      "Bluepin is a diabetes management app with personalised AI insights that track your glucose and analyse your health reports to care for your health as a whole.",
     images: ["https://bluepin.in/Bluepin.png"],
   },
 };
