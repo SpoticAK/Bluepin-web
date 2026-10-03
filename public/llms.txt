@@ -1,0 +1,20 @@
+# Bluepin
+
+> Diabetes Management with personalised AI insights
+
+Bluepin is a comprehensive diabetes management app that tracks your glucose levels, analyzes your health reports, and provides personalized AI-driven insights to help you manage your health as a whole.
+
+## Key Features
+
+- **Personalized AI Insights**: Receive actionable advice tailored to your health data.
+- **Glucose Tracking**: Monitor and log your glucose levels effectively.
+- **Health Report Analysis**: Let our AI parse and summarize your medical reports.
+- **Holistic Health Management**: Care for multiple organs and understand how diabetes affects your overall well-being.
+
+## Official Links
+
+- [Home](https://bluepin.in/)
+- [About Us](https://bluepin.in/about)
+- [Contact](https://bluepin.in/contact)
+- [Privacy Policy](https://bluepin.in/privacy)
+- [Terms of Service](https://bluepin.in/terms)
