@@ -11,6 +11,7 @@ import HowItWorks from "./HowItWorks";
 import HowItWorksClassic from "./HowItWorksClassic";
 import MultiOrganProblem from "./MultiOrganProblem";
 import Reveal from "./Reveal";
+import VideoSection from "./VideoSection";
 
 export {
   AmbientCurves,
@@ -26,4 +27,5 @@ export {
   HowItWorksClassic,
   MultiOrganProblem,
   Reveal,
+  VideoSection,
 };
