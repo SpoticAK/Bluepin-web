@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import Link from "next/link";
 import Image from "next/image";
@@ -12,79 +12,77 @@ import bluepinLogo from "@/public/Bluepin.png";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [hash, setHash] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  useEffect(() => {
-    const updateHash = () => setHash(window.location.hash);
-    updateHash();
-    window.addEventListener("hashchange", updateHash);
-    return () => window.removeEventListener("hashchange", updateHash);
-  }, []);
-
-  const isActive = (href: string) => {
-    if (href === "/#faq") return pathname === "/" && hash === "#faq";
-    if (href === "/") return pathname === "/" && hash !== "#faq";
-    return pathname === href;
-  };
+  const isActive = (href: string) => pathname === href;
 
   return (
-    <nav className="border-b border-theme-border/50 bg-white/80 dark:bg-theme-bg/80 backdrop-blur-xl sticky top-0 z-50">
-      <div className="max-w-8xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <Link
-            href="/"
-            onClick={() => setMobileOpen(false)}
-            className="flex items-center gap-3"
-          >
-            <Image
-              src={bluepinLogo}
-              alt="Bluepin Logo"
-              className="size-8 object-contain"
-              width={32}
-              height={32}
-              priority
-            />
-            <span className="font-display font-bold text-xl tracking-tight">
-              Blue<span className="font-medium opacity-80">pin.</span>
-            </span>
-          </Link>
-        </div>
+    <header className="w-full bg-[#FAFAF7]/90 dark:bg-[#121311]/90 backdrop-blur-md sticky top-0 z-50 border-b border-[#EAE8E1]/70 dark:border-white/10 transition-colors">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 h-16 md:h-20 flex items-center justify-between gap-4">
+        <Link
+          href="/"
+          onClick={() => setMobileOpen(false)}
+          className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-900 dark:focus-visible:ring-stone-100 rounded-sm"
+          aria-label="Bluepin Home"
+        >
+          <Image
+            src={bluepinLogo}
+            alt="Bluepin Logo"
+            width={28}
+            height={28}
+            className="w-6 h-6 sm:w-7 sm:h-7 object-contain transition-transform group-hover:scale-[1.03]"
+            priority
+          />
+          <span className="text-[17px] sm:text-[18px] font-medium tracking-tight text-stone-900 dark:text-stone-50">
+            Bluepin
+          </span>
+        </Link>
 
-        <div className="hidden md:flex items-center gap-1 lg:gap-2">
+        <nav
+          aria-label="Primary"
+          className="hidden md:flex items-center gap-1"
+        >
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
               className={cn(
-                "px-3 lg:px-4 py-2 rounded-full text-base font-medium transition-colors",
+                "px-4 py-2 rounded-full text-[15px] font-normal transition-colors",
                 isActive(link.href)
-                  ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40"
-                  : "text-theme-text-sec hover:text-theme-text hover:bg-theme-border/40",
+                  ? "text-stone-950 dark:text-stone-50 bg-stone-900/5 dark:bg-white/10 font-medium"
+                  : "text-stone-600 dark:text-stone-400 hover:text-stone-950 dark:hover:text-stone-50"
               )}
             >
               {link.label}
             </Link>
           ))}
-        </div>
+        </nav>
 
-        <div className="flex items-center gap-4 md:gap-6">
+        <div className="flex items-center gap-2.5 sm:gap-3">
           <ThemeToggle />
           <Link
             href="https://app.bluepin.in"
-            className="text-base font-medium bg-white dark:bg-slate-900 text-blue-600 border border-slate-200 dark:border-slate-800 px-6 py-2.5 rounded-full hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors shadow-sm hidden sm:inline-flex"
+            className="hidden lg:inline-flex text-[14px] font-normal text-stone-600 dark:text-stone-400 hover:text-stone-950 dark:hover:text-stone-50 transition-colors px-2 py-2"
           >
             Sign in
           </Link>
+          <Link
+            href="https://wa.me/?text=Hi%20Bluepin"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center text-[13px] sm:text-[14px] font-medium px-4 py-1.5 sm:px-5 sm:py-2 rounded-full bg-stone-950 dark:bg-stone-50 hover:bg-stone-800 dark:hover:bg-stone-200 text-white dark:text-stone-950 transition-all duration-150"
+          >
+            Start on WhatsApp
+          </Link>
           <button
             onClick={() => setMobileOpen((open) => !open)}
-            className="md:hidden p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+            className="md:hidden p-2 rounded-full text-stone-600 dark:text-stone-300 hover:bg-stone-900/5 dark:hover:bg-white/10 transition-colors"
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
           >
@@ -94,17 +92,20 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden border-t border-theme-border/50 px-6 py-4 flex flex-col gap-1 bg-white/95 dark:bg-theme-bg/95 backdrop-blur-xl">
+        <nav
+          aria-label="Mobile"
+          className="md:hidden border-t border-stone-200/70 dark:border-white/10 px-6 py-4 flex flex-col gap-1 bg-[#FAFAF7]/95 dark:bg-[#121311]/95 backdrop-blur-md"
+        >
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
               onClick={() => setMobileOpen(false)}
               className={cn(
-                "px-4 py-3 rounded-xl text-base font-medium transition-colors",
+                "px-4 py-3 rounded-xl text-base font-normal transition-colors",
                 isActive(link.href)
-                  ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40"
-                  : "text-theme-text-sec hover:text-theme-text hover:bg-theme-border/40",
+                  ? "text-stone-950 dark:text-stone-50 bg-stone-900/5 dark:bg-white/10 font-medium"
+                  : "text-stone-600 dark:text-stone-400 hover:text-stone-950 dark:hover:text-stone-50"
               )}
             >
               {link.label}
@@ -113,12 +114,12 @@ export default function Navbar() {
           <Link
             href="https://app.bluepin.in"
             onClick={() => setMobileOpen(false)}
-            className="mt-2 text-center text-base font-medium bg-white dark:bg-slate-900 text-blue-600 border border-slate-200 dark:border-slate-800 px-6 py-3 rounded-full hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors shadow-sm"
+            className="mt-1 text-center text-base font-normal px-6 py-3 rounded-full border border-stone-300 dark:border-white/20 text-stone-900 dark:text-stone-100"
           >
             Sign in
           </Link>
-        </div>
+        </nav>
       )}
-    </nav>
+    </header>
   );
 }

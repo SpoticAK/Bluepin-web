@@ -1,34 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Poppins, Outfit } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
-import localFont from "next/font/local";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const garet = localFont({
-  src: [
-    {
-      path: "./fonts/Garet-Book.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Garet-Heavy.woff2",
-      weight: "800 900",
-      style: "normal",
-    },
-  ],
-  variable: "--font-garet",
-  display: "swap",
-});
-
-const poppins = Poppins({
-  weight: ["300", "400", "600", "700"],
+const inter = Inter({
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
-  variable: "--font-poppins",
+  variable: "--font-sans",
   display: "swap",
 });
 
@@ -75,7 +57,7 @@ export default function RootLayout({
       <GoogleTagManager gtmId="GTM-N3TDQJHS" />
       <body
         suppressHydrationWarning
-        className={`${poppins.variable} ${outfit.variable} ${garet.variable} antialiased min-h-screen`}
+        className={`${inter.variable} ${outfit.variable} antialiased min-h-screen`}
       >
         <Script id="meta-pixel" strategy="afterInteractive">
           {`!function(f,b,e,v,n,t,s)
