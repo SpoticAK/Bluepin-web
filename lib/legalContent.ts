@@ -7,7 +7,7 @@ export interface LegalDocContent {
 }
 
 export function getLegalDocContent(): LegalDocContent {
-  const dir = path.join(process.cwd(), "public", "legal");
+  const dir = path.join(process.cwd(), "content", "legal");
   return {
     terms: fs.readFileSync(path.join(dir, "Terms_of_Service.md"), "utf8"),
     privacy: fs.readFileSync(path.join(dir, "Privacy_Policy.md"), "utf8"),
