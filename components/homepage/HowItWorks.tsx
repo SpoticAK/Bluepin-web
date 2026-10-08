@@ -3,21 +3,22 @@ import Reveal from "./Reveal";
 
 export default function HowItWorks() {
   return (
-    <section className="w-full py-16 sm:py-20 md:py-24 border-t border-stone-200/70 dark:border-white/10 bg-[#FAFAF7] dark:bg-[#121311] overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 flex flex-col items-center">
-        <Reveal className="flex flex-col items-center w-full">
+    <section className="w-full bg-[#FAFAF7] dark:bg-[#121311] border-t border-stone-200/70 dark:border-white/10 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
+        <div className="max-w-4xl mx-auto py-18 sm:py-24 md:py-28 flex flex-col items-center">
+          <Reveal className="flex flex-col items-center w-full">
           <div className="text-center max-w-xl mb-12 sm:mb-14">
-            <span className="text-sm font-sans text-stone-500 dark:text-stone-400 mb-2 block font-normal">
+            <span className="text-xs font-sans text-stone-500 dark:text-stone-400 mb-2 block font-normal">
               How it works
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-[42px] font-sans font-normal tracking-[-0.035em] text-stone-950 dark:text-stone-50 leading-[1.12] text-balance">
+            <h2 className="text-3xl sm:text-4xl md:text-[42px] font-sans font-normal tracking-[-0.035em] text-stone-950 dark:text-stone-50 leading-[1.12]">
               How Bluepin works
             </h2>
-            <p className="mt-3 text-base sm:text-lg text-stone-600 dark:text-stone-400 font-normal leading-relaxed tracking-[-0.01em]">
+            <p className="mt-2.5 text-base sm:text-lg text-stone-600 dark:text-stone-400 font-normal leading-relaxed tracking-[-0.01em]">
               From scattered health records to understanding what is changing in your body.
             </p>
           </div>
-        </Reveal>
+          </Reveal>
 
         <div className="w-full flex flex-col items-center gap-10 sm:gap-12 max-w-3xl">
 
@@ -26,10 +27,10 @@ export default function HowItWorks() {
             <span className="w-6 h-6 rounded-full bg-stone-950 dark:bg-stone-50 text-white dark:text-stone-950 text-[11px] font-medium flex items-center justify-center mb-2.5 select-none">
               1
             </span>
-            <h3 className="text-2xl sm:text-[28px] font-sans font-medium text-stone-950 dark:text-stone-50 tracking-[-0.025em]">
+            <h3 className="text-xl sm:text-2xl font-sans font-medium text-stone-950 dark:text-stone-50 tracking-[-0.025em]">
               Add your health data
             </h3>
-            <p className="mt-1.5 text-base sm:text-lg text-stone-600 dark:text-stone-400 font-normal max-w-md leading-relaxed">
+            <p className="mt-1.5 text-sm sm:text-base text-stone-600 dark:text-stone-400 font-normal max-w-md leading-relaxed">
               Share your glucose readings and health reports with Bluepin.
             </p>
 
@@ -74,7 +75,7 @@ export default function HowItWorks() {
 
                 <div className="relative z-10 flex flex-col items-center">
                   <div className="w-12 h-12 rounded-full bg-white dark:bg-white/5 border border-stone-300 dark:border-white/15 shadow-sm flex items-center justify-center">
-                    <span className="w-3 h-3 rounded-full bg-stone-950 dark:bg-stone-50" />
+                    <span className="w-3 h-3 rounded-full bg-linear-to-tr from-blue-600 via-indigo-500 to-pink-500" />
                   </div>
                   <span className="text-[11px] font-medium text-stone-900 dark:text-stone-200 mt-1.5 font-sans tracking-tight">Bluepin</span>
                 </div>
@@ -127,10 +128,10 @@ export default function HowItWorks() {
             <span className="w-6 h-6 rounded-full bg-stone-950 dark:bg-stone-50 text-white dark:text-stone-950 text-[11px] font-medium flex items-center justify-center mb-2.5 select-none">
               2
             </span>
-            <h3 className="text-2xl sm:text-[28px] font-sans font-medium text-stone-950 dark:text-stone-50 tracking-[-0.025em]">
+            <h3 className="text-xl sm:text-2xl font-sans font-medium text-stone-950 dark:text-stone-50 tracking-[-0.025em]">
               Build your health picture
             </h3>
-            <p className="mt-1.5 text-base sm:text-lg text-stone-600 dark:text-stone-400 font-normal max-w-lg leading-relaxed">
+            <p className="mt-1.5 text-sm sm:text-base text-stone-600 dark:text-stone-400 font-normal max-w-lg leading-relaxed">
               Bluepin extracts key biomarkers from your reports and brings them together with your glucose readings, tracking how they change over time.
             </p>
 
@@ -172,7 +173,7 @@ export default function HowItWorks() {
                     <div>
                       <div className="flex items-center justify-between border-b border-stone-100 dark:border-white/10 pb-1 mb-1.5">
                         <span className="text-[10px] font-sans font-bold text-stone-950 dark:text-stone-100">2026</span>
-                        <span className="w-1.5 h-1.5 rounded-full bg-stone-900 dark:bg-stone-100 animate-pulse" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
                       </div>
                       <div className="space-y-1 text-[8px] font-mono text-stone-700 dark:text-stone-300">
                         <div className="bg-stone-100/90 dark:bg-white/10 p-0.5 rounded-xs font-semibold text-stone-950 dark:text-stone-50">HbA1c · 6.7%</div>
@@ -193,10 +194,10 @@ export default function HowItWorks() {
                 <div className="w-full md:w-68 flex flex-col gap-2.5 text-left">
                   <div className="flex flex-col">
                     <div className="flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-stone-950 dark:bg-stone-50 shrink-0" />
-                      <span className="text-sm font-semibold text-stone-950 dark:text-stone-100 tracking-tight">HbA1c</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0" />
+                      <span className="text-xs font-semibold text-stone-950 dark:text-stone-100 tracking-tight">HbA1c</span>
                     </div>
-                    <div className="pl-3.5 flex items-center gap-1.5 font-mono text-xs text-stone-600 dark:text-stone-400">
+                    <div className="pl-3.5 flex items-center gap-1.5 font-mono text-[11px] text-stone-600 dark:text-stone-400">
                       <span>6.2%</span>
                       <span className="text-stone-300 dark:text-stone-600">→</span>
                       <span>6.5%</span>
@@ -207,10 +208,10 @@ export default function HowItWorks() {
 
                   <div className="flex flex-col">
                     <div className="flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-stone-600 dark:bg-stone-400 shrink-0" />
-                      <span className="text-sm font-semibold text-stone-950 dark:text-stone-100 tracking-tight">Creatinine</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />
+                      <span className="text-xs font-semibold text-stone-950 dark:text-stone-100 tracking-tight">Creatinine</span>
                     </div>
-                    <div className="pl-3.5 flex items-center gap-1.5 font-mono text-xs text-stone-600 dark:text-stone-400">
+                    <div className="pl-3.5 flex items-center gap-1.5 font-mono text-[11px] text-stone-600 dark:text-stone-400">
                       <span>0.9</span>
                       <span className="text-stone-300 dark:text-stone-600">→</span>
                       <span>1.0</span>
@@ -221,10 +222,10 @@ export default function HowItWorks() {
 
                   <div className="flex flex-col">
                     <div className="flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-stone-500 dark:bg-stone-500 shrink-0" />
-                      <span className="text-sm font-semibold text-stone-950 dark:text-stone-100 tracking-tight">Cholesterol</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0" />
+                      <span className="text-xs font-semibold text-stone-950 dark:text-stone-100 tracking-tight">Cholesterol</span>
                     </div>
-                    <div className="pl-3.5 flex items-center gap-1.5 font-mono text-xs text-stone-600 dark:text-stone-400">
+                    <div className="pl-3.5 flex items-center gap-1.5 font-mono text-[11px] text-stone-600 dark:text-stone-400">
                       <span>178</span>
                       <span className="text-stone-300 dark:text-stone-600">→</span>
                       <span>184</span>
@@ -235,10 +236,10 @@ export default function HowItWorks() {
 
                   <div className="flex flex-col">
                     <div className="flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-stone-400 dark:bg-stone-500 shrink-0" />
-                      <span className="text-sm font-semibold text-stone-950 dark:text-stone-100 tracking-tight">ALT (Liver)</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0" />
+                      <span className="text-xs font-semibold text-stone-950 dark:text-stone-100 tracking-tight">ALT (Liver)</span>
                     </div>
-                    <div className="pl-3.5 flex items-center gap-1.5 font-mono text-xs text-stone-600 dark:text-stone-400">
+                    <div className="pl-3.5 flex items-center gap-1.5 font-mono text-[11px] text-stone-600 dark:text-stone-400">
                       <span>28</span>
                       <span className="text-stone-300 dark:text-stone-600">→</span>
                       <span>31</span>
@@ -261,10 +262,10 @@ export default function HowItWorks() {
             <span className="w-6 h-6 rounded-full bg-stone-950 dark:bg-stone-50 text-white dark:text-stone-950 text-[11px] font-medium flex items-center justify-center mb-2.5 select-none">
               3
             </span>
-            <h3 className="text-2xl sm:text-[28px] font-sans font-medium text-stone-950 dark:text-stone-50 tracking-[-0.025em]">
+            <h3 className="text-xl sm:text-2xl font-sans font-medium text-stone-950 dark:text-stone-50 tracking-[-0.025em]">
               Find patterns across your health
             </h3>
-            <p className="mt-1.5 text-base sm:text-lg text-stone-600 dark:text-stone-400 font-normal max-w-lg leading-relaxed">
+            <p className="mt-1.5 text-sm sm:text-base text-stone-600 dark:text-stone-400 font-normal max-w-lg leading-relaxed">
               Bluepin analyses these changes together to identify trends and relationships that can be difficult to spot on your own.
             </p>
 
@@ -276,31 +277,31 @@ export default function HowItWorks() {
                   <text x="270" y="142" className="fill-stone-400 text-[9.5px] font-mono">2025</text>
                   <text x="410" y="142" className="fill-stone-400 text-[9.5px] font-mono">2026</text>
 
-                  <line x1="270" y1="26" x2="270" y2="110" stroke="#d6d3d1" strokeWidth="1" strokeDasharray="3 3" />
-                  <line x1="410" y1="16" x2="410" y2="100" stroke="#d6d3d1" strokeWidth="1" strokeDasharray="3 3" />
+                  <line x1="270" y1="26" x2="270" y2="110" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="3 3" />
+                  <line x1="410" y1="16" x2="410" y2="100" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="3 3" />
 
                   <g>
-                    <text x="10" y="22" className="fill-stone-700 text-[11px] font-sans font-medium">HbA1c ↗</text>
-                    <path d="M 120 34 Q 210 28, 270 26 T 410 16" stroke="#1c1917" strokeWidth="2" />
-                    <circle cx="120" cy="34" r="2.5" className="fill-stone-900" />
-                    <circle cx="270" cy="26" r="2.5" className="fill-stone-900" />
-                    <circle cx="410" cy="16" r="3" className="fill-stone-900" />
+                    <text x="10" y="22" className="fill-indigo-600 text-[11px] font-sans font-medium">HbA1c ↗</text>
+                    <path d="M 120 34 Q 210 28, 270 26 T 410 16" stroke="#4f46e5" strokeWidth="2" />
+                    <circle cx="120" cy="34" r="2.5" className="fill-indigo-600" />
+                    <circle cx="270" cy="26" r="2.5" className="fill-indigo-600" />
+                    <circle cx="410" cy="16" r="3" className="fill-indigo-600" />
                   </g>
 
                   <g>
-                    <text x="10" y="60" className="fill-stone-500 text-[11px] font-sans font-medium">eGFR ↘</text>
-                    <path d="M 120 50 Q 210 58, 270 66 T 410 80" stroke="#78716c" strokeWidth="2" strokeDasharray="4 4" />
-                    <circle cx="120" cy="50" r="2.5" className="fill-stone-500" />
-                    <circle cx="270" cy="66" r="2.5" className="fill-stone-500" />
-                    <circle cx="410" cy="80" r="3" className="fill-stone-500" />
+                    <text x="10" y="60" className="fill-amber-600 text-[11px] font-sans font-medium">eGFR ↘</text>
+                    <path d="M 120 50 Q 210 58, 270 66 T 410 80" stroke="#d97706" strokeWidth="2" strokeDasharray="4 4" />
+                    <circle cx="120" cy="50" r="2.5" className="fill-amber-600" />
+                    <circle cx="270" cy="66" r="2.5" className="fill-amber-600" />
+                    <circle cx="410" cy="80" r="3" className="fill-amber-600" />
                   </g>
 
                   <g>
-                    <text x="10" y="104" className="fill-stone-600 text-[11px] font-sans font-medium">Creatinine ↗</text>
-                    <path d="M 120 118 Q 210 114, 270 110 T 410 100" stroke="#57534e" strokeWidth="2" />
-                    <circle cx="120" cy="118" r="2.5" className="fill-stone-600" />
-                    <circle cx="270" cy="110" r="2.5" className="fill-stone-600" />
-                    <circle cx="410" cy="100" r="3" className="fill-stone-600" />
+                    <text x="10" y="104" className="fill-rose-600 text-[11px] font-sans font-medium">Creatinine ↗</text>
+                    <path d="M 120 118 Q 210 114, 270 110 T 410 100" stroke="#e11d48" strokeWidth="2" />
+                    <circle cx="120" cy="118" r="2.5" className="fill-rose-600" />
+                    <circle cx="270" cy="110" r="2.5" className="fill-rose-600" />
+                    <circle cx="410" cy="100" r="3" className="fill-rose-600" />
                   </g>
                 </svg>
               </div>
@@ -316,17 +317,17 @@ export default function HowItWorks() {
             <span className="w-6 h-6 rounded-full bg-stone-950 dark:bg-stone-50 text-white dark:text-stone-950 text-[11px] font-medium flex items-center justify-center mb-2.5 select-none">
               4
             </span>
-            <h3 className="text-2xl sm:text-[28px] font-sans font-medium text-stone-950 dark:text-stone-50 tracking-[-0.025em]">
+            <h3 className="text-xl sm:text-2xl font-sans font-medium text-stone-950 dark:text-stone-50 tracking-[-0.025em]">
               Get personalised insights
             </h3>
-            <p className="mt-1.5 text-base sm:text-lg text-stone-600 dark:text-stone-400 font-normal max-w-lg leading-relaxed">
+            <p className="mt-1.5 text-sm sm:text-base text-stone-600 dark:text-stone-400 font-normal max-w-lg leading-relaxed">
               Bluepin turns those patterns into clear, personalised insights to help you understand what is changing in your health.
             </p>
 
             <div className="w-full mt-6 max-w-xl text-left">
               <div className="flex items-start gap-3.5 py-1">
-                <span className="w-3.5 h-3.5 rounded-full bg-stone-950 dark:bg-stone-50 shrink-0 mt-1" />
-                <p className="text-lg sm:text-xl text-stone-800 dark:text-stone-200 font-normal leading-[1.58] tracking-[-0.012em]">
+                <span className="w-3.5 h-3.5 rounded-full bg-linear-to-tr from-purple-600 via-pink-500 to-rose-400 shrink-0 mt-1 shadow-[0_0_10px_rgba(217,70,239,0.3)]" />
+                <p className="text-base sm:text-lg text-stone-800 dark:text-stone-200 font-normal leading-[1.58] tracking-[-0.012em]">
                   Your kidney filtration rate (eGFR) has decreased by{" "}
                   <strong className="font-semibold text-stone-950 dark:text-stone-50">23%</strong> over
                   the past 3 years. Your latest HbA1c is{" "}
@@ -338,6 +339,7 @@ export default function HowItWorks() {
             </div>
           </Reveal>
 
+        </div>
         </div>
       </div>
     </section>
