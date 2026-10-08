@@ -4,11 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "./ThemeToggle";
 
 const pageLinks = [
   { label: "Why Bluepin", href: "/why-bluepin" },
   { label: "How it works", href: "/how-it-works" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact us", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -61,7 +62,6 @@ export default function Navbar() {
           >
             Start on WhatsApp
           </Link>
-          <ThemeToggle />
           <button
             onClick={() => setMobileOpen((open) => !open)}
             className="md:hidden shrink-0 p-2 rounded-full text-stone-600 dark:text-stone-300 hover:bg-stone-900/5 dark:hover:bg-white/10 transition-colors"

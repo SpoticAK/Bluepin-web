@@ -82,8 +82,8 @@ fbq('track', 'PageView');`}
         </noscript>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem={true}
+          defaultTheme="light"
+          enableSystem={false}
         >
           <Navbar />
           {children}
