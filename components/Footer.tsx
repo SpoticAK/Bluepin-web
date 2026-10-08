@@ -7,8 +7,8 @@ function getYear() {
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#FAFAF7] dark:bg-[#121311] border-t border-stone-200/80 dark:border-white/10 py-12 px-6 sm:px-8 transition-colors">
-      <div className="max-w-7xl px-6 sm:px-8 mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-[13px] text-stone-500 dark:text-stone-400 font-normal">
+    <footer className="w-full bg-paper border-t border-line py-12 transition-colors">
+      <div className="max-w-wide mx-auto px-6 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-[13px] text-ink-2 font-normal">
         <div className="flex items-center gap-2.5">
           <Image
             src="/Bluepin.png"

@@ -17,41 +17,64 @@ function WhatsAppIcon({ className = "w-4 h-4" }: { className?: string }) {
 
 export default function Hero() {
   return (
-    <section id="hero" className="w-full bg-[#FAFAF7] dark:bg-[#121311]">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8">
-        <div className="max-w-4xl mx-auto pt-24 sm:pt-32 md:pt-40 pb-20 md:pb-28 flex flex-col items-center text-center">
+    <section id="hero" className="w-full bg-paper">
+      <div className="container-site">
+        <div className="container-prose pt-12 sm:pt-16 md:pt-20 pb-14 sm:pb-16 md:pb-20 flex flex-col items-center text-center">
           <Reveal className="flex flex-col items-center">
             {/* 1. Hero Headline */}
-            <h1 className="text-[2.85rem] sm:text-6xl md:text-7xl lg:text-[5rem] font-sans font-normal tracking-[-0.038em] text-stone-950 dark:text-stone-50 leading-[1.07] max-w-3xl">
+            <h1 className="text-[2.85rem] sm:text-6xl md:text-7xl lg:text-[5rem] font-sans font-normal tracking-[-0.038em] text-ink leading-[1.07] max-w-3xl">
               Manage diabetes the smarter way.
             </h1>
 
             {/* 2. Supporting Copy */}
-            <p className="mt-7 md:mt-8 text-base sm:text-lg md:text-[20px] text-stone-600 dark:text-stone-400 font-normal leading-[1.6] max-w-2xl tracking-[-0.012em]">
+            <p className="body-lg-site mt-5 sm:mt-6 max-w-2xl">
               Diabetes is more than your glucose. Bluepin helps you understand
               and manage the bigger picture of your health. Get the Bluepin
               Assistant on{" "}
-              <span className="inline-flex items-center gap-1.5 font-semibold text-[#25D366] align-baseline">
-                <WhatsAppIcon className="w-4 h-4 fill-[#25D366] shrink-0 inline-block" />
+              <span className="inline-flex items-center gap-1.5 font-semibold text-whatsapp align-baseline">
+                <WhatsAppIcon className="w-4 h-4 fill-whatsapp shrink-0 inline-block" />
                 WhatsApp
               </span>{" "}
               and start managing your diabetes for free.
             </p>
 
             {/* 3. WhatsApp CTA */}
-            <div className="mt-9 md:mt-11 flex flex-col items-center gap-3.5">
+            <div className="mt-8 sm:mt-9 flex flex-col items-center">
               <Link
                 href="https://app.bluepin.in"
-                className="group inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-medium text-[15px] sm:text-[16px] shadow-sm hover:shadow-md transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 active:scale-[0.99]"
+                className="group inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-whatsapp hover:bg-whatsapp-hover text-white font-medium text-[15px] sm:text-[16px] shadow-sm hover:shadow-md transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-whatsapp focus-visible:ring-offset-2 active:scale-[0.99]"
               >
                 <WhatsAppIcon className="w-4.5 h-4.5 fill-white group-hover:scale-105 transition-transform" />
                 <span>Start on WhatsApp</span>
               </Link>
 
-              {/* Workflow steps in clear, prominent black text */}
-              <p className="text-xs sm:text-[14px] text-stone-950 dark:text-stone-100 font-medium tracking-tight">
-                Create account → Sync WhatsApp → Start managing diabetes
-              </p>
+              {/* Workflow steps */}
+              <ol className="mt-7 sm:mt-8 flex flex-wrap items-center justify-center gap-x-2.5 gap-y-2 px-2 text-sm sm:text-[15px] font-medium tracking-tight text-ink-2">
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-ink text-paper text-[10px] font-semibold flex items-center justify-center shrink-0">
+                    1
+                  </span>
+                  <span>Create account</span>
+                </li>
+                <li aria-hidden="true" className="text-ink-2/40 select-none">
+                  &#8594;
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-ink text-paper text-[10px] font-semibold flex items-center justify-center shrink-0">
+                    2
+                  </span>
+                  <span>Sync WhatsApp</span>
+                </li>
+                <li aria-hidden="true" className="text-ink-2/40 select-none">
+                  &#8594;
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-ink text-paper text-[10px] font-semibold flex items-center justify-center shrink-0">
+                    3
+                  </span>
+                  <span>Start managing diabetes</span>
+                </li>
+              </ol>
             </div>
           </Reveal>
         </div>

@@ -30,13 +30,30 @@
   --color-theme-warning: var(--status-warning);
   --color-theme-critical: var(--status-critical);
 
+  /* Canonical surfaces — replaces ad-hoc #FAFAF7 / #F6F5F0 hex in sections */
+  --color-paper: var(--bg-color);
+  --color-paper-sunken: var(--bg-sunken-color);
+  --color-card: var(--card-color);
+  --color-line: var(--border-color);
+  --color-ink: var(--text-primary);
+  --color-ink-2: var(--text-secondary);
+  --color-whatsapp: #25d366;
+  --color-whatsapp-hover: #20bd5a;
+
+  /* Canonical containers: site (6xl) / wide (7xl, nav+footer only) / prose (3xl) */
+  --container-site: 72rem;
+  --container-wide: 80rem;
+  --container-prose: 48rem;
+
   --spacing-8xl: 90rem;
+  --spacing-18: 4.5rem;
 }
 
 @layer base {
   :root {
     /* Earthy Light Mode */
     --bg-color: #f7f6f1;
+    --bg-sunken-color: #f1efe8;
     --card-color: #ffffff;
     --card-sec-color: #edebe0;
     --border-color: #e2dfd3;
@@ -52,6 +69,7 @@
   .dark {
     /* Earthy Dark Mode */
     --bg-color: #121311;
+    --bg-sunken-color: #171816;
     --card-color: #1c1e1b;
     --card-sec-color: #272a25;
     --border-color: rgba(255, 255, 240, 0.08);
@@ -74,6 +92,106 @@
       color, background-color, border-color, text-decoration-color, fill, stroke;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
+  }
+}
+
+/* Shared homepage system (tokens phase — additive only, sections migrate next).
+   Single container / rhythm / type scale so sections stop drifting. */
+@layer components {
+  .container-site {
+    width: 100%;
+    max-width: var(--container-site);
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+  .container-prose {
+    width: 100%;
+    max-width: var(--container-prose);
+    margin-inline: auto;
+  }
+  @media (min-width: 40rem) {
+    .container-site {
+      padding-inline: 2rem;
+    }
+  }
+
+  .section-pad {
+    padding-block: 4rem;
+  }
+  @media (min-width: 40rem) {
+    .section-pad {
+      padding-block: 5rem;
+    }
+  }
+  @media (min-width: 48rem) {
+    .section-pad {
+      padding-block: 6rem;
+    }
+  }
+
+  /* Section landmark: a chart-legend key, not a shout.
+     The terracotta swatch is a nod to test-strip color blocks — the
+     visual language of diabetes readings. Sentence case, quiet weight. */
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    font-weight: 500;
+    letter-spacing: 0;
+    color: var(--text-secondary);
+  }
+  .section-tag::before {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 2px;
+    background-color: var(--accent-color);
+    flex-shrink: 0;
+  }
+
+  .h2-site {
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    line-height: 1.12;
+    color: var(--text-primary);
+    font-size: 1.875rem;
+  }
+  @media (min-width: 40rem) {
+    .h2-site {
+      font-size: 2.25rem;
+    }
+  }
+  @media (min-width: 48rem) {
+    .h2-site {
+      font-size: 2.625rem;
+    }
+  }
+
+  .body-lg-site {
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    color: var(--text-secondary);
+  }
+  @media (min-width: 40rem) {
+    .body-lg-site {
+      font-size: 1.125rem;
+    }
+  }
+
+  .body-site {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    letter-spacing: -0.01em;
+    color: var(--text-secondary);
+  }
+  @media (min-width: 40rem) {
+    .body-site {
+      font-size: 1rem;
+    }
   }
 }
 
