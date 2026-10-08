@@ -1,5 +1,6 @@
 import React from "react";
 import Reveal from "./Reveal";
+import Link from "next/link";
 
 // Elegant, anatomically faithful line illustration symbols
 function EyeLineIcon({ className = "w-4 h-4" }: { className?: string }) {
@@ -140,7 +141,8 @@ const COMPLICATIONS: ComplicationItem[] = [
     icon: NerveLineIcon,
     value: "Up to 50%",
     condition: "Diabetic neuropathy",
-    explanation: "Nerve damage that typically causes pain, numbness, or tingling.",
+    explanation:
+      "Nerve damage that typically causes pain, numbness, or tingling.",
   },
   {
     icon: KidneyLineIcon,
@@ -164,13 +166,17 @@ const COMPLICATIONS: ComplicationItem[] = [
     icon: HeartLineIcon,
     value: "~2×",
     condition: "Cardiovascular risk",
-    explanation: "Higher likelihood of heart attack, stroke, or vessel disease.",
+    explanation:
+      "Higher likelihood of heart attack, stroke, or vessel disease.",
   },
 ];
 
 export default function BeyondGlucose() {
   return (
-    <section id="why" className="w-full bg-[#F6F5F0] dark:bg-[#171816] border-t border-stone-200/80 dark:border-white/10">
+    <section
+      id="why"
+      className="w-full bg-[#F6F5F0] dark:bg-[#171816] border-t border-stone-200/80 dark:border-white/10"
+    >
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="max-w-4xl mx-auto py-16 sm:py-20 md:py-24 flex flex-col items-center text-center">
           <Reveal className="flex flex-col items-center w-full">
@@ -191,14 +197,12 @@ export default function BeyondGlucose() {
               </span>
               <span className="text-base sm:text-lg text-stone-900 dark:text-stone-200 font-medium tracking-tight">
                 had at least one diabetes-related complication{" "}
-                <a
-                  href="https://onlinelibrary.wiley.com/doi/full/10.1002/hsr2.1096"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="https://app.bluepin.in"
                   className="text-xs sm:text-sm text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 underline underline-offset-2 decoration-stone-300 dark:decoration-stone-600 hover:decoration-stone-900 dark:hover:decoration-stone-100 transition-colors font-normal whitespace-nowrap ml-1"
                 >
                   (Source)
-                </a>
+                </Link>
               </span>
             </div>
 
@@ -242,7 +246,8 @@ export default function BeyondGlucose() {
             {/* 4. Final Solution Message Transition */}
             <div className="mt-9 sm:mt-10 pt-7 sm:pt-8 border-t border-stone-200/80 dark:border-white/10 w-full max-w-2xl flex flex-col items-center text-center">
               <p className="text-base sm:text-lg md:text-[19px] text-stone-800 dark:text-stone-200 font-normal leading-relaxed tracking-[-0.01em]">
-                That&apos;s why you shouldn&apos;t only take care of your glucose — you should take care of your entire health.
+                That&apos;s why you shouldn&apos;t only take care of your
+                glucose — you should take care of your entire health.
               </p>
               <p className="mt-2 text-base sm:text-lg md:text-[19px] text-stone-950 dark:text-stone-50 font-semibold tracking-[-0.015em]">
                 Bluepin is built to solve exactly this problem.

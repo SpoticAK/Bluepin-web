@@ -28,8 +28,9 @@ export default function Hero() {
 
             {/* 2. Supporting Copy */}
             <p className="mt-7 md:mt-8 text-base sm:text-lg md:text-[20px] text-stone-600 dark:text-stone-400 font-normal leading-[1.6] max-w-2xl tracking-[-0.012em]">
-              Diabetes is more than your glucose. Bluepin helps you understand and
-              manage the bigger picture of your health. Get the Bluepin Assistant on{" "}
+              Diabetes is more than your glucose. Bluepin helps you understand
+              and manage the bigger picture of your health. Get the Bluepin
+              Assistant on{" "}
               <span className="inline-flex items-center gap-1.5 font-semibold text-[#25D366] align-baseline">
                 <WhatsAppIcon className="w-4 h-4 fill-[#25D366] shrink-0 inline-block" />
                 WhatsApp
@@ -40,9 +41,7 @@ export default function Hero() {
             {/* 3. WhatsApp CTA */}
             <div className="mt-9 md:mt-11 flex flex-col items-center gap-3.5">
               <Link
-                href="https://wa.me/?text=Hi%20Bluepin"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="https://app.bluepin.in"
                 className="group inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-medium text-[15px] sm:text-[16px] shadow-sm hover:shadow-md transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 active:scale-[0.99]"
               >
                 <WhatsAppIcon className="w-4.5 h-4.5 fill-white group-hover:scale-105 transition-transform" />
