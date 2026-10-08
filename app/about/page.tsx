@@ -5,7 +5,7 @@ import AmbientCurves from "@/components/homepage/AmbientCurves";
 import {
   FeatureShowcase,
   MultiOrganProblem,
-  HowItWorks,
+  HowItWorksClassic,
 } from "@/components/homepage";
 
 export const metadata: Metadata = {
@@ -32,7 +32,7 @@ export default function AboutPage() {
       <main className="relative">
         <FeatureShowcase />
         <MultiOrganProblem />
-        <HowItWorks />
+        <HowItWorksClassic />
       </main>
     </div>
   );

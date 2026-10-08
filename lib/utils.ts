@@ -18,40 +18,48 @@ export function getBMICategory(bmi: number): string {
   return "Obese";
 }
 
-import { parseISO, format, isValid } from 'date-fns';
+import { parseISO, format, isValid } from "date-fns";
 
-export function safeFormat(dateStr: string | Date | undefined | null, formatStr: string): string {
-  if (!dateStr) return '';
+export function safeFormat(
+  dateStr: string | Date | undefined | null,
+  formatStr: string,
+): string {
+  if (!dateStr) return "";
   try {
-    let d = typeof dateStr === 'string' ? parseISO(dateStr) : dateStr;
-    if (typeof dateStr === 'string' && !isValid(d)) {
+    let d = typeof dateStr === "string" ? parseISO(dateStr) : dateStr;
+    if (typeof dateStr === "string" && !isValid(d)) {
       d = new Date(dateStr);
     }
     if (isValid(d)) {
       return format(d, formatStr);
     }
-    return '';
+    return "";
   } catch (e) {
-    return '';
+    console.log(e);
+    return "";
   }
 }
 
 export const downloadFile = (fileUrl: string, date: string) => {
   try {
-    if (fileUrl.startsWith('data:')) {
-      const arr = fileUrl.split(',');
-      const mime = arr[0].match(/:(.*?);/)?.[1] || 'application/pdf';
+    if (fileUrl.startsWith("data:")) {
+      const arr = fileUrl.split(",");
+      const mime = arr[0].match(/:(.*?);/)?.[1] || "application/pdf";
       const bstr = atob(arr[1]);
       let n = bstr.length;
       const u8arr = new Uint8Array(n);
       while (n--) {
         u8arr[n] = bstr.charCodeAt(n);
       }
-      const blob = new Blob([u8arr], {type: mime});
+      const blob = new Blob([u8arr], { type: mime });
       const downloadUrl = URL.createObjectURL(blob);
-      const extension = mime.includes('pdf') ? 'pdf' : (mime.includes('png') ? 'png' : 'jpg');
-      
-      const a = document.createElement('a');
+      const extension = mime.includes("pdf")
+        ? "pdf"
+        : mime.includes("png")
+          ? "png"
+          : "jpg";
+
+      const a = document.createElement("a");
       a.href = downloadUrl;
       a.download = `Lab_Report_${date}.${extension}`;
       document.body.appendChild(a);
@@ -60,7 +68,7 @@ export const downloadFile = (fileUrl: string, date: string) => {
       setTimeout(() => URL.revokeObjectURL(downloadUrl), 100);
     } else {
       // Remote URL: open immediately to avoid popup blockers blocking async window.open
-      window.open(fileUrl, '_blank');
+      window.open(fileUrl, "_blank");
     }
   } catch (err) {
     console.error("Error downloading file:", err);

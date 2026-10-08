@@ -1,21 +1,21 @@
 import {
   Hero,
-  FeatureShowcase,
-  MultiOrganProblem,
+  BeyondGlucose,
   HowItWorks,
+  DataOwnership,
   FAQSection,
+  VideoSection,
 } from "@/components/homepage";
-import AmbientCurves from "@/components/homepage/AmbientCurves";
 
 export default function WelcomeScreen() {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 text-theme-text font-sans antialiased selection:bg-purple-500/30 overflow-hidden relative z-0">
-      <AmbientCurves />
-      <main>
+    <div className="min-h-screen bg-[#FAFAF7] dark:bg-[#121311] text-stone-900 dark:text-stone-100 font-sans antialiased selection:bg-stone-200 dark:selection:bg-stone-700 selection:text-stone-900 dark:selection:text-stone-50">
+      <main className="w-full">
         <Hero />
-        <FeatureShowcase />
-        <MultiOrganProblem />
+        <VideoSection />
+        <BeyondGlucose />
         <HowItWorks />
+        <DataOwnership />
         <FAQSection />
       </main>
     </div>
