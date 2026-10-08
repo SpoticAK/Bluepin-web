@@ -29,9 +29,13 @@ export default function Navbar() {
         <div className="flex items-center gap-3 sm:gap-4 text-sm">
           <ThemeToggle />
           <Link
-            href="https://wa.me/?text=Hi%20Bluepin"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/why-bluepin"
+            className="hidden sm:inline text-stone-600 dark:text-stone-400 hover:text-stone-950 dark:hover:text-stone-50 transition-colors text-[13px] sm:text-[14px] font-normal"
+          >
+            Why Bluepin
+          </Link>
+          <Link
+            href="/how-it-works"
             className="hidden sm:inline text-stone-600 dark:text-stone-400 hover:text-stone-950 dark:hover:text-stone-50 transition-colors text-[13px] sm:text-[14px] font-normal"
           >
             How it works
