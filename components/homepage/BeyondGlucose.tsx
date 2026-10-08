@@ -180,7 +180,7 @@ export default function BeyondGlucose() {
             </span>
 
             {/* 1. Opening Heading */}
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-sans font-normal tracking-[-0.035em] text-stone-950 dark:text-stone-50 leading-[1.2] whitespace-nowrap">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-sans font-normal tracking-[-0.035em] text-stone-950 dark:text-stone-50 leading-[1.2] whitespace-normal lg:whitespace-nowrap text-balance max-w-full">
               Diabetes doesn&apos;t stop at blood sugar.
             </h2>
 

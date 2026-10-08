@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { faqs, faqJsonLd } from "@/lib/faq";
+import { faqs, healthFaqs, bluepinFaqs, faqJsonLd } from "@/lib/faq";
 import FaqAccordion from "@/components/homepage/FaqAccordion";
 
 export const metadata: Metadata = {
   title: "FAQ | Bluepin — Diabetes Management Questions Answered",
   description:
-    "Answers to common questions about blood sugar, HbA1c, diabetes complications, Bluepin's features, privacy, and how Bluepin helps you manage diabetes.",
+    "Answers to 16 common questions about blood sugar, HbA1c, diabetes complications, Bluepin's features, pricing, privacy, and how Bluepin helps you manage diabetes.",
 };
 
 export default function FAQPage() {
@@ -39,9 +39,27 @@ export default function FAQPage() {
               </p>
             </div>
 
-            <FaqAccordion items={faqs} />
+            <section aria-labelledby="faq-health-heading">
+              <h2
+                id="faq-health-heading"
+                className="text-lg sm:text-xl font-sans font-medium tracking-tight text-stone-950 dark:text-stone-50 mb-4"
+              >
+                Diabetes and your health
+              </h2>
+              <FaqAccordion items={healthFaqs} />
+            </section>
 
-            <p className="mt-8 text-xs sm:text-sm text-stone-500 dark:text-stone-500 leading-relaxed text-center">
+            <section aria-labelledby="faq-bluepin-heading" className="mt-12 sm:mt-14">
+              <h2
+                id="faq-bluepin-heading"
+                className="text-lg sm:text-xl font-sans font-medium tracking-tight text-stone-950 dark:text-stone-50 mb-4"
+              >
+                Using Bluepin
+              </h2>
+              <FaqAccordion items={bluepinFaqs} />
+            </section>
+
+            <p className="mt-10 text-xs sm:text-sm text-stone-500 dark:text-stone-500 leading-relaxed text-center">
               Bluepin is an educational health companion. It is not a medical
               device and does not provide medical advice, diagnosis, or
               treatment. Always consult a qualified doctor for decisions about

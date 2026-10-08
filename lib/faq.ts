@@ -9,9 +9,11 @@ export interface FaqItem {
   sources?: FaqSource[];
 }
 
-// Canonical FAQ content (kept verbatim from the previous homepage for SEO).
-// The homepage preview renders the first 5; /faq renders all.
-export const faqs: FaqItem[] = [
+// Canonical FAQ content.
+// - healthFaqs: the original diabetes-education questions (kept verbatim for SEO).
+// - bluepinFaqs: product questions — the 6 from the redesign, then the original product ones.
+// The homepage preview renders healthFaqs (first 5); /faq renders both groups.
+export const healthFaqs: FaqItem[] = [
   {
     q: "What is a normal blood sugar level?",
     answer:
@@ -76,6 +78,39 @@ export const faqs: FaqItem[] = [
       },
     ],
   },
+];
+
+export const bluepinFaqs: FaqItem[] = [
+  {
+    q: "How much does Bluepin cost?",
+    answer:
+      "Bluepin is completely free to use. There are no subscription fees or paid plans for the core Bluepin experience.",
+  },
+  {
+    q: "Do I need to download an app?",
+    answer:
+      "No. You can start using Bluepin through WhatsApp, and you can also use the Bluepin web app. You don’t need to install another app just to get started.",
+  },
+  {
+    q: "What can I track with Bluepin?",
+    answer:
+      "You can record your glucose readings and add health reports such as blood tests. Bluepin can extract important biomarkers from your reports and bring them together with your glucose history, so you can see how your health changes over time.",
+  },
+  {
+    q: "Is Bluepin only for tracking blood sugar?",
+    answer:
+      "No. Glucose is an important part of diabetes management, but Bluepin also helps you understand the bigger picture of your health by bringing together information from your glucose readings and health reports.",
+  },
+  {
+    q: "Is my health data safe and who owns it?",
+    answer:
+      "Your health data is yours. Bluepin uses security measures such as encryption, access controls and audit logging to protect health information. You can also delete your Bluepin account and its active health data. Bluepin does not use personal health information for targeted advertising.",
+  },
+  {
+    q: "Is Bluepin a medical service?",
+    answer:
+      "No. Bluepin helps you understand your health information and identify trends and patterns. Its insights are informational and are not a diagnosis, prescription, or substitute for advice from a qualified healthcare professional.",
+  },
   {
     q: "Is Bluepin free?",
     answer:
@@ -102,6 +137,9 @@ export const faqs: FaqItem[] = [
       "Most diabetes apps only track your sugar. Bluepin connects your glucose, HbA1c, and blood reports over time to show how diabetes may be affecting your organs — kidneys, eyes, heart, liver, and nerves. Health apps were built to track; Bluepin was built to understand.",
   },
 ];
+
+// Flat list of every question (health first, then product) for JSON-LD and previews.
+export const faqs: FaqItem[] = [...healthFaqs, ...bluepinFaqs];
 
 export function faqJsonLd(items: FaqItem[]) {
   return {
