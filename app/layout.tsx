@@ -6,6 +6,7 @@ import { ThemeProvider } from "../components/ThemeProvider";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const inter = Inter({
   weight: ["300", "400", "500", "600", "700"],
@@ -88,6 +89,7 @@ fbq('track', 'PageView');`}
           <Navbar />
           {children}
           <Footer />
+          <ScrollToTop />
         </ThemeProvider>
       </body>
     </html>
