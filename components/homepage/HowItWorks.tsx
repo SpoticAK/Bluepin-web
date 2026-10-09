@@ -8,10 +8,8 @@ export default function HowItWorks() {
         <div className="container-prose section-pad flex flex-col items-center">
           <Reveal className="flex flex-col items-center w-full">
             <div className="text-center max-w-xl mb-12 sm:mb-14">
-              <span className="section-tag">
-                How it works
-              </span>
-              <h2 className="h2-site">
+              <span className="section-tag text-lg">How it works</span>
+              <h2 className="h2-site text-4xl sm:text-5xl lg:text-6xl">
                 How Bluepin works
               </h2>
               <p className="body-lg-site mt-2.5">
@@ -27,57 +25,60 @@ export default function HowItWorks() {
               <span className="w-6 h-6 rounded-full bg-ink text-paper text-[11px] font-medium flex items-center justify-center mb-2.5 select-none">
                 1
               </span>
-              <h3 className="text-xl sm:text-2xl font-sans font-medium text-ink tracking-tight">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-sans font-medium text-ink tracking-tight">
                 Add your health data
               </h3>
-              <p className="body-site mt-1.5 max-w-md">
+              <p className="body-site mt-1.5 max-w-md text-base md:text-lg">
                 Share your glucose readings and health reports with Bluepin.
               </p>
 
-              <div className="w-full mt-6 flex items-center justify-center">
-                <div className="relative w-full max-w-lg h-44 sm:h-48 flex items-center justify-between px-4 sm:px-8 select-none">
-                  <div className="relative w-36 h-36">
-                    <div className="absolute top-1 left-2 px-2.5 py-1 rounded-md bg-white dark:bg-white/5 border border-stone-200/90 dark:border-white/10 shadow-[0_1px_2px_rgba(0,0,0,0.03)] -rotate-3">
-                      <span className="text-[9px] text-stone-400 dark:text-stone-500 block font-mono">
+              <div className="w-full mt-8 flex items-center justify-center">
+                <div className="relative w-full max-w-2xl h-[340px] sm:h-[380px] grid grid-cols-[1fr_auto_1fr] items-center gap-1 sm:gap-2 px-1 sm:px-4 select-none">
+                  {/* Left: evenly stacked reading pills */}
+                  <div className="relative z-10 flex flex-col items-center justify-center gap-3 sm:gap-5">
+                    <div className="w-36 sm:w-52 px-3 py-2 sm:px-5 sm:py-3 rounded-xl bg-white dark:bg-white/5 border border-stone-200/90 dark:border-white/10 shadow-[0_1px_2px_rgba(0,0,0,0.03)] -rotate-3">
+                      <span className="text-[11px] sm:text-sm text-stone-400 dark:text-stone-500 block font-mono">
                         Fasting
                       </span>
-                      <span className="text-xs sm:text-[13px] font-semibold text-stone-950 dark:text-stone-100 font-sans tracking-tight">
+                      <span className="text-lg sm:text-3xl font-semibold text-stone-950 dark:text-stone-100 font-sans tracking-tight">
                         128{" "}
-                        <span className="text-[9px] font-normal text-stone-500 dark:text-stone-400">
+                        <span className="text-[10px] sm:text-sm font-normal text-stone-500 dark:text-stone-400">
                           mg/dL
                         </span>
                       </span>
                     </div>
 
-                    <div className="absolute top-12 left-5 px-2.5 py-1 rounded-md bg-white dark:bg-white/5 border border-stone-200/90 dark:border-white/10 shadow-[0_1px_2px_rgba(0,0,0,0.03)] rotate-6 z-10">
-                      <span className="text-[9px] text-stone-400 dark:text-stone-500 block font-mono">
+                    <div className="w-36 sm:w-52 px-3 py-2 sm:px-5 sm:py-3 rounded-xl bg-white dark:bg-white/5 border border-stone-200/90 dark:border-white/10 shadow-[0_1px_2px_rgba(0,0,0,0.03)] rotate-3">
+                      <span className="text-[11px] sm:text-sm text-stone-400 dark:text-stone-500 block font-mono">
                         Post-lunch
                       </span>
-                      <span className="text-xs sm:text-[13px] font-semibold text-stone-950 dark:text-stone-100 font-sans tracking-tight">
+                      <span className="text-lg sm:text-3xl font-semibold text-stone-950 dark:text-stone-100 font-sans tracking-tight">
                         142{" "}
-                        <span className="text-[9px] font-normal text-stone-500 dark:text-stone-400">
+                        <span className="text-[10px] sm:text-sm font-normal text-stone-500 dark:text-stone-400">
                           mg/dL
                         </span>
                       </span>
                     </div>
 
-                    <div className="absolute bottom-1 left-0 px-2 py-1 rounded-md bg-white dark:bg-white/5 border border-stone-200/90 dark:border-white/10 shadow-[0_1px_2px_rgba(0,0,0,0.03)] -rotate-6">
-                      <span className="text-[9px] text-stone-400 dark:text-stone-500 block font-mono">
+                    <div className="w-36 sm:w-52 px-3 py-2 sm:px-5 sm:py-3 rounded-xl bg-white dark:bg-white/5 border border-stone-200/90 dark:border-white/10 shadow-[0_1px_2px_rgba(0,0,0,0.03)] -rotate-3">
+                      <span className="text-[11px] sm:text-sm text-stone-400 dark:text-stone-500 block font-mono">
                         Bedtime
                       </span>
-                      <span className="text-xs sm:text-[13px] font-semibold text-stone-950 dark:text-stone-100 font-sans tracking-tight">
+                      <span className="text-lg sm:text-3xl font-semibold text-stone-950 dark:text-stone-100 font-sans tracking-tight">
                         116{" "}
-                        <span className="text-[9px] font-normal text-stone-500 dark:text-stone-400">
+                        <span className="text-[10px] sm:text-sm font-normal text-stone-500 dark:text-stone-400">
                           mg/dL
                         </span>
                       </span>
                     </div>
                   </div>
 
+                  {/* Symmetric connector arrows, drawn in the gaps only */}
                   <svg
-                    className="absolute inset-0 w-full h-full pointer-events-none"
-                    viewBox="0 0 460 200"
+                    className="absolute inset-0 w-full h-full pointer-events-none z-0"
+                    viewBox="0 0 600 380"
                     fill="none"
+                    preserveAspectRatio="none"
                   >
                     <defs>
                       <marker
@@ -85,8 +86,8 @@ export default function HowItWorks() {
                         viewBox="0 0 10 10"
                         refX="6"
                         refY="5"
-                        markerWidth="5"
-                        markerHeight="5"
+                        markerWidth="7"
+                        markerHeight="7"
                         orient="auto-start-reverse"
                       >
                         <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#78716c" />
@@ -96,82 +97,86 @@ export default function HowItWorks() {
                         viewBox="0 0 10 10"
                         refX="6"
                         refY="5"
-                        markerWidth="5"
-                        markerHeight="5"
+                        markerWidth="7"
+                        markerHeight="7"
                         orient="auto-start-reverse"
                       >
                         <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#78716c" />
                       </marker>
                     </defs>
                     <path
-                      d="M 142 85 C 175 85, 185 100, 204 100"
+                      d="M 195 170 C 215 170, 225 190, 258 190"
                       stroke="#78716c"
-                      strokeWidth="1.25"
+                      strokeWidth="2"
                       markerEnd="url(#arrow-left)"
                     />
                     <path
-                      d="M 318 92 C 285 92, 275 100, 256 100"
+                      d="M 405 170 C 385 170, 375 190, 342 190"
                       stroke="#78716c"
-                      strokeWidth="1.25"
+                      strokeWidth="2"
                       markerEnd="url(#arrow-right)"
                     />
                   </svg>
 
-                  <div className="relative z-10 flex flex-col items-center">
-                    <div className="w-12 h-12 rounded-full bg-white dark:bg-white/5 border border-stone-300 dark:border-white/15 shadow-sm flex items-center justify-center">
-                      <span className="w-3 h-3 rounded-full bg-ink" />
+                  {/* Center: smaller Bluepin node */}
+                  <div className="relative z-20 flex flex-col items-center px-1 sm:px-3">
+                    <div className="group size-15 rounded-full bg-white dark:bg-white/5 border border-stone-300 dark:border-white/15 shadow-sm flex items-center justify-center">
+                      <span className="size-5 rounded-full bg-[#84A2F0] group-hover:bg-[#F476C0]" />
                     </div>
-                    <span className="text-[11px] font-medium text-stone-900 dark:text-stone-200 mt-1.5 font-sans tracking-tight">
+                    <span className="text-xs sm:text-base font-medium text-stone-900 dark:text-stone-200 mt-2 font-sans tracking-tight">
                       Bluepin
                     </span>
                   </div>
 
-                  <div className="relative w-36 h-40 flex items-center justify-center">
-                    <div className="absolute top-1 right-4 w-26 h-34 rounded-sm bg-[#FAFAF8] dark:bg-white/5 border border-stone-200/90 dark:border-white/10 shadow-[0_1px_2px_rgba(0,0,0,0.02)] rotate-8 p-2 flex flex-col justify-between">
-                      <div className="space-y-1.5 opacity-40">
-                        <div className="w-8 h-1 bg-stone-500 rounded-xs" />
-                        <div className="w-14 h-0.5 bg-stone-300 rounded-xs" />
-                        <div className="w-10 h-0.5 bg-stone-300 rounded-xs" />
+                  {/* Right: centered lab report, pushed away from center */}
+                  <div className="relative z-10 flex items-center justify-center">
+                    <div className="relative w-36 h-56 sm:w-52 sm:h-72">
+                      <div className="absolute top-0 right-0 w-32 h-48 sm:w-48 sm:h-64 rounded-md sm:rounded-lg bg-[#FAFAF8] dark:bg-white/5 border border-stone-200/90 dark:border-white/10 shadow-[0_1px_2px_rgba(0,0,0,0.02)] rotate-6 p-2.5 sm:p-4 flex flex-col justify-between">
+                        <div className="space-y-2 sm:space-y-3 opacity-40">
+                          <div className="w-10 h-1.5 sm:w-16 sm:h-2 bg-stone-500 rounded-xs" />
+                          <div className="w-20 h-1 sm:w-32 sm:h-1.5 bg-stone-300 rounded-xs" />
+                          <div className="w-14 h-1 sm:w-24 sm:h-1.5 bg-stone-300 rounded-xs" />
+                        </div>
+                        <span className="text-[9px] sm:text-sm font-mono text-stone-400 dark:text-stone-500">
+                          Hospital lab
+                        </span>
                       </div>
-                      <span className="text-[8px] font-mono text-stone-400 dark:text-stone-500">
-                        Hospital lab
-                      </span>
-                    </div>
 
-                    <div className="absolute top-4 right-7 w-28 h-36 rounded-sm bg-white dark:bg-white/5 border border-stone-300 dark:border-white/15 shadow-[0_2px_4px_rgba(0,0,0,0.04)] -rotate-3 p-2.5 flex flex-col justify-between z-10">
-                      <div>
-                        <div className="flex items-center justify-between border-b border-stone-100 dark:border-white/10 pb-1 mb-1.5">
-                          <span className="text-[8.5px] font-sans font-semibold text-stone-900 dark:text-stone-100">
-                            Lab Report
-                          </span>
-                          <span className="text-[7.5px] font-mono text-stone-400 dark:text-stone-500">
-                            PDF
-                          </span>
+                      <div className="absolute top-5 sm:top-6 right-4 sm:right-5 w-32 h-48 sm:w-48 sm:h-64 rounded-md sm:rounded-lg bg-white dark:bg-white/5 border border-stone-300 dark:border-white/15 shadow-[0_2px_4px_rgba(0,0,0,0.04)] -rotate-3 p-3 sm:p-4 flex flex-col justify-between">
+                        <div>
+                          <div className="flex items-center justify-between border-b border-stone-100 dark:border-white/10 pb-1.5 mb-2 sm:pb-2 sm:mb-3">
+                            <span className="text-[11px] sm:text-base font-sans font-semibold text-stone-900 dark:text-stone-100">
+                              Lab Report
+                            </span>
+                            <span className="text-[9px] sm:text-xs font-mono text-stone-400 dark:text-stone-500">
+                              PDF
+                            </span>
+                          </div>
+                          <div className="space-y-1 sm:space-y-2 text-[9px] sm:text-[13px] text-stone-600 dark:text-stone-400 font-mono">
+                            <div className="flex justify-between gap-2">
+                              <span>Glucose Fasting</span>
+                              <span className="font-semibold text-stone-950 dark:text-stone-100">
+                                126
+                              </span>
+                            </div>
+                            <div className="flex justify-between gap-2">
+                              <span>HbA1c Glycated</span>
+                              <span className="font-semibold text-stone-950 dark:text-stone-100">
+                                6.7%
+                              </span>
+                            </div>
+                            <div className="flex justify-between gap-2">
+                              <span>Creatinine</span>
+                              <span className="font-semibold text-stone-950 dark:text-stone-100">
+                                1.0
+                              </span>
+                            </div>
+                          </div>
                         </div>
-                        <div className="space-y-1 text-[7.5px] text-stone-600 dark:text-stone-400 font-mono">
-                          <div className="flex justify-between">
-                            <span>Glucose Fasting</span>
-                            <span className="font-semibold text-stone-950 dark:text-stone-100">
-                              126
-                            </span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span>HbA1c Glycated</span>
-                            <span className="font-semibold text-stone-950 dark:text-stone-100">
-                              6.7%
-                            </span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span>Creatinine</span>
-                            <span className="font-semibold text-stone-950 dark:text-stone-100">
-                              1.0
-                            </span>
-                          </div>
-                        </div>
+                        <span className="text-[9px] sm:text-xs font-sans text-stone-400 dark:text-stone-500">
+                          Diagnostic PDF
+                        </span>
                       </div>
-                      <span className="text-[7.5px] font-sans text-stone-400 dark:text-stone-500">
-                        Diagnostic PDF
-                      </span>
                     </div>
                   </div>
                 </div>
@@ -578,14 +583,10 @@ export default function HowItWorks() {
                   <span className="w-3.5 h-3.5 rounded-full bg-whatsapp shrink-0 mt-1" />
                   <p className="body-lg-site text-ink">
                     Your kidney filtration rate (eGFR) has decreased by{" "}
-                    <strong className="font-semibold text-ink">
-                      23%
-                    </strong>{" "}
-                    over the past 3 years. Your latest HbA1c is{" "}
-                    <strong className="font-semibold text-ink">
-                      6.7%
-                    </strong>
-                    , which is in the diabetes range. We recommend discussing
+                    <strong className="font-semibold text-ink">23%</strong> over
+                    the past 3 years. Your latest HbA1c is{" "}
+                    <strong className="font-semibold text-ink">6.7%</strong>,
+                    which is in the diabetes range. We recommend discussing
                     these changes with your doctor.
                   </p>
                 </div>

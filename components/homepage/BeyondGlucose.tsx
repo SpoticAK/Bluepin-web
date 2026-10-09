@@ -74,7 +74,7 @@ export default function BeyondGlucose() {
             </h2>
 
             {/* 3. Alarm proof point: split layout with disappearing border */}
-            <div className="mt-8 flex flex-col sm:flex-row items-center sm:items-stretch text-center sm:text-left max-w-xl border border-line bg-paper-sunken shadow-sm">
+            <div className="mt-8 flex flex-col sm:flex-row items-center sm:items-stretch text-center sm:text-left max-w-xl border border-line bg-paper rounded-xl shadow-lg">
               {/* Left: Number */}
               <div className="flex items-center justify-center sm:justify-end p-6 sm:p-8 sm:w-2/5">
                 <span className="text-4xl sm:text-5xl font-sans font-medium text-ink tracking-tight leading-none">
