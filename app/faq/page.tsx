@@ -6,7 +6,18 @@ import FaqAccordion from "@/components/homepage/FaqAccordion";
 export const metadata: Metadata = {
   title: "FAQ | Bluepin — Diabetes Management Questions Answered",
   description:
-    "Answers to 16 common questions about blood sugar, HbA1c, diabetes complications, Bluepin's features, pricing, privacy, and how Bluepin helps you manage diabetes.",
+    "Answers to 16 common questions about blood sugar, HbA1c, diabetes complications, Bluepin features, pricing and privacy.",
+  alternates: {
+    canonical: "https://bluepin.in/faq",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://bluepin.in/faq",
+    title: "FAQ | Bluepin — Diabetes Management Questions Answered",
+    description:
+      "Answers to 16 common questions about blood sugar, HbA1c, diabetes complications, Bluepin features, pricing and privacy.",
+    images: ["https://bluepin.in/og-image.png"],
+  },
 };
 
 export default function FAQPage() {

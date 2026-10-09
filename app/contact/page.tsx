@@ -4,16 +4,19 @@ import AmbientCurves from "@/components/homepage/AmbientCurves";
 import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Bluepin | Get in touch",
+  title: "Contact Bluepin | Diabetes Support & Help",
   description:
     "Have a question, feedback, or need help with Bluepin? Reach out to us at marketing@bluepin.in or visit us at 34 Pavilion, Sector 34, Noida, Uttar Pradesh.",
+  alternates: {
+    canonical: "https://bluepin.in/contact",
+  },
   openGraph: {
     type: "website",
     url: "https://bluepin.in/contact",
-    title: "Contact Bluepin | Get in touch",
+    title: "Contact Bluepin | Diabetes Support & Help",
     description:
       "Have a question, feedback, or need help with Bluepin? Reach out to us at marketing@bluepin.in or visit us at 34 Pavilion, Sector 34, Noida, Uttar Pradesh.",
-    images: ["https://bluepin.in/bluepin.webp"],
+    images: ["https://bluepin.in/og-image.png"],
   },
 };
 

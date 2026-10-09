@@ -2,7 +2,12 @@ import React from "react";
 import Reveal from "./Reveal";
 import YearDeck from "./YearDeck";
 
-export default function HowItWorks() {
+export default function HowItWorks({
+  headingAsH1 = false,
+}: {
+  headingAsH1?: boolean;
+}) {
+  const TitleTag = headingAsH1 ? "h1" : "h2";
   return (
     <section className="w-full bg-paper border-t border-line overflow-hidden">
       <div className="container-site">
@@ -10,9 +15,9 @@ export default function HowItWorks() {
           <Reveal className="flex flex-col items-center w-full">
             <div className="text-center max-w-xl mb-12 sm:mb-14">
               <span className="section-tag text-lg">How it works</span>
-              <h2 className="h2-site text-4xl sm:text-5xl lg:text-6xl">
+              <TitleTag className="h2-site text-4xl sm:text-5xl lg:text-6xl">
                 How Bluepin works
-              </h2>
+              </TitleTag>
               <p className="body-lg-site mt-2.5">
                 From scattered health records to understanding what is changing
                 in your body.

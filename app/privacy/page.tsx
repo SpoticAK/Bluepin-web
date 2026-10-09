@@ -5,7 +5,19 @@ import remarkGfm from "remark-gfm";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Bluepin",
-  description: "Privacy Policy for Bluepin.",
+  description:
+    "Read Bluepin's Privacy Policy: how your health data is protected, stored and kept private, and your rights under India's DPDP Act.",
+  alternates: {
+    canonical: "https://bluepin.in/privacy",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://bluepin.in/privacy",
+    title: "Privacy Policy | Bluepin",
+    description:
+      "Read Bluepin's Privacy Policy: how your health data is protected, stored and kept private.",
+    images: ["https://bluepin.in/og-image.png"],
+  },
 };
 
 export default function PrivacyPolicyPage() {

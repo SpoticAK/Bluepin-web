@@ -15,6 +15,9 @@ Bluepin is a comprehensive diabetes management app that tracks your glucose leve
 
 - [Home](https://bluepin.in/)
 - [About Us](https://bluepin.in/about)
+- [How It Works](https://bluepin.in/how-it-works)
+- [Why Bluepin](https://bluepin.in/why-bluepin)
+- [FAQ](https://bluepin.in/faq)
 - [Contact](https://bluepin.in/contact)
 - [Privacy Policy](https://bluepin.in/privacy)
 - [Terms of Service](https://bluepin.in/terms)

@@ -59,7 +59,12 @@ const COMPLICATIONS: ComplicationItem[] = [
   },
 ];
 
-export default function BeyondGlucose() {
+export default function BeyondGlucose({
+  headingAsH1 = false,
+}: {
+  headingAsH1?: boolean;
+}) {
+  const TitleTag = headingAsH1 ? "h1" : "h2";
   return (
     <section id="why" className="w-full bg-paper-sunken border-t border-line">
       <div className="container-site">
@@ -69,9 +74,9 @@ export default function BeyondGlucose() {
             <span className="section-tag text-lg">Why it matters</span>
 
             {/* 2. Opening Heading */}
-            <h2 className="h2-site mt-4 text-4xl sm:text-5xl lg:text-6xl text-balance max-w-full leading-none">
+            <TitleTag className="h2-site mt-4 text-4xl sm:text-5xl lg:text-6xl text-balance max-w-full leading-none">
               Diabetes doesn&apos;t stop at blood sugar.
-            </h2>
+            </TitleTag>
 
             {/* 3. Alarm proof point: split layout with disappearing border */}
             <div className="mt-8 flex flex-col sm:flex-row items-center sm:items-stretch text-center sm:text-left max-w-xl border border-line bg-paper rounded-xl shadow-lg">

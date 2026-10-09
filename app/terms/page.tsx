@@ -5,7 +5,19 @@ import remarkGfm from "remark-gfm";
 
 export const metadata: Metadata = {
   title: "Terms of Service | Bluepin",
-  description: "Terms of Service for Bluepin.",
+  description:
+    "Read Bluepin's Terms of Service: the rules for using Bluepin's diabetes companion app and health insights.",
+  alternates: {
+    canonical: "https://bluepin.in/terms",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://bluepin.in/terms",
+    title: "Terms of Service | Bluepin",
+    description:
+      "Read Bluepin's Terms of Service: the rules for using Bluepin's diabetes companion app.",
+    images: ["https://bluepin.in/og-image.png"],
+  },
 };
 
 export default function TermsOfServicePage() {
