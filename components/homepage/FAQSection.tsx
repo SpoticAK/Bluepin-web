@@ -22,10 +22,10 @@ export default function FAQSection() {
       <div className="container-site flex flex-col items-center">
         <Reveal className="w-full max-w-3xl flex flex-col items-center">
           <div className="text-center max-w-xl mb-10 sm:mb-12">
-            <span className="section-tag">
+            <span className="section-tag text-lg">
               Frequently asked questions
             </span>
-            <h2 className="h2-site text-balance">
+            <h2 className="h2-site text-4xl sm:text-5xl lg:text-6xl text-balance">
               Questions? Good.
             </h2>
             <p className="body-lg-site mt-2.5">
@@ -46,9 +46,8 @@ export default function FAQSection() {
 
           <p className="mt-8 w-full text-xs sm:text-sm text-stone-500 dark:text-stone-500 leading-relaxed text-center">
             Bluepin is an educational health companion. It is not a medical
-            device and does not provide medical advice, diagnosis, or
-            treatment. Always consult a qualified doctor for decisions about
-            your health.
+            device and does not provide medical advice, diagnosis, or treatment.
+            Always consult a qualified doctor for decisions about your health.
           </p>
         </Reveal>
       </div>
