@@ -4,19 +4,20 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "./ThemeToggle";
 
 const pageLinks = [
   { label: "Why Bluepin", href: "/why-bluepin" },
   { label: "How it works", href: "/how-it-works" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact us", href: "/contact" },
 ];
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="w-full bg-[#FAFAF7]/90 dark:bg-[#121311]/90 backdrop-blur-md sticky top-0 z-50 border-b border-[#EAE8E1]/70 dark:border-white/10 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 md:h-20 flex items-center justify-between gap-2 sm:gap-4">
+    <header className="relative w-full bg-paper/90 backdrop-blur-md top-0 z-50 border-b border-line transition-colors">
+      <div className="max-w-wide mx-auto px-4 sm:px-8 h-16 md:h-20 flex items-center justify-between gap-2 sm:gap-4">
         <Link
           href="/"
           onClick={() => setMobileOpen(false)}
@@ -25,7 +26,7 @@ export default function Navbar() {
         >
           <div className="relative w-6 h-6 sm:w-7 sm:h-7 transition-transform group-hover:scale-[1.03]">
             <Image
-              src="/Bluepin.png"
+              src="/bluepin-96.webp"
               alt="Bluepin Logo"
               width={28}
               height={28}
@@ -33,7 +34,7 @@ export default function Navbar() {
               priority
             />
           </div>
-          <span className="text-[17px] sm:text-[18px] font-medium tracking-tight text-stone-900 dark:text-stone-50 whitespace-nowrap">
+          <span className="text-[17px] sm:text-[18px] font-medium tracking-tight text-ink whitespace-nowrap">
             Bluepin
           </span>
         </Link>
@@ -47,7 +48,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-stone-600 dark:text-stone-400 hover:text-stone-950 dark:hover:text-stone-50 transition-colors text-[14px] font-normal px-3 py-2 whitespace-nowrap"
+                className="text-ink-2 hover:text-ink transition-colors text-[14px] font-normal px-3 py-2 whitespace-nowrap"
               >
                 {link.label}
               </Link>
@@ -57,11 +58,10 @@ export default function Navbar() {
             href="https://app.bluepin.in"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center justify-center shrink-0 text-[14px] font-medium px-5 py-2 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-sm hover:shadow-md transition-all duration-150 whitespace-nowrap"
+            className="hidden sm:inline-flex items-center justify-center shrink-0 text-[14px] font-medium px-5 py-2 rounded-full bg-whatsapp hover:bg-whatsapp-hover text-white shadow-sm hover:shadow-md transition-all duration-150 whitespace-nowrap"
           >
             Start on WhatsApp
           </Link>
-          <ThemeToggle />
           <button
             onClick={() => setMobileOpen((open) => !open)}
             className="md:hidden shrink-0 p-2 rounded-full text-stone-600 dark:text-stone-300 hover:bg-stone-900/5 dark:hover:bg-white/10 transition-colors"
@@ -76,7 +76,7 @@ export default function Navbar() {
       {mobileOpen && (
         <nav
           aria-label="Mobile"
-          className="md:hidden border-t border-stone-200/70 dark:border-white/10 px-4 py-3 flex flex-col gap-1 bg-[#FAFAF7]/95 dark:bg-[#121311]/95 backdrop-blur-md"
+          className="md:hidden absolute inset-x-0 top-full border-t border-line px-4 py-3 flex flex-col gap-1 bg-paper shadow-xl shadow-stone-900/5 rounded-b-2xl"
         >
           {pageLinks.map((link) => (
             <Link
@@ -93,7 +93,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
-            className="mt-1 inline-flex items-center justify-center text-base font-medium px-6 py-3 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-sm transition-all duration-150"
+            className="mt-1 inline-flex items-center justify-center text-base font-medium px-6 py-3 rounded-full bg-whatsapp hover:bg-whatsapp-hover text-white shadow-sm transition-all duration-150"
           >
             Start on WhatsApp
           </Link>

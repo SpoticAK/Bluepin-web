@@ -7,13 +7,18 @@ import health1 from "@/public/health1.webp";
 import health2 from "@/public/health2.webp";
 import health3 from "@/public/health3.webp";
 
-export default function FeatureShowcase() {
+export default function FeatureShowcase({
+  headingAsH1 = false,
+}: {
+  headingAsH1?: boolean;
+}) {
+  const TitleTag = headingAsH1 ? "h1" : "h2";
   return (
     <section className="pt-10  md:pt-16 pb-8 md:pb-12 px-6 md:px-12 max-w-8xl mx-auto relative z-10 border-t border-theme-border/40">
       <div className="mx-auto mb-16 md:mb-20 text-left">
-        <h2 className="text-4xl md:text-5xl font-display tracking-tight text-theme-text font-bold mb-6">
-          Why BluePin?
-        </h2>
+        <TitleTag className="text-4xl md:text-5xl font-display tracking-tight text-theme-text font-bold mb-6">
+          About
+        </TitleTag>
         <p className="text-xl md:text-2xl font-display text-theme-text max-w-3xl leading-relaxed font-medium">
           We connect your glucose and health data over time to help you stay
           ahead of its long-term impact on your organs! Because diabetes is not

@@ -4,6 +4,12 @@ export default function FooterLegalLinks() {
   return (
     <div className="flex gap-6">
       <Link
+        href="/about"
+        className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
+      >
+        About
+      </Link>
+      <Link
         href="/terms"
         className="hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
       >

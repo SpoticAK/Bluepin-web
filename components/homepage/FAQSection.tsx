@@ -11,7 +11,7 @@ export default function FAQSection() {
   return (
     <section
       id="faq"
-      className="w-full py-16 sm:py-20 md:py-24 border-t border-stone-200/80 dark:border-white/10 bg-[#FAFAF7] dark:bg-[#121311] scroll-mt-20"
+      className="w-full section-pad border-t border-line bg-paper scroll-mt-20"
     >
       <script
         type="application/ld+json"
@@ -19,16 +19,16 @@ export default function FAQSection() {
           __html: JSON.stringify(faqJsonLd(preview)),
         }}
       />
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 flex flex-col items-center">
+      <div className="container-site flex flex-col items-center">
         <Reveal className="w-full max-w-3xl flex flex-col items-center">
           <div className="text-center max-w-xl mb-10 sm:mb-12">
-            <span className="text-sm font-sans text-stone-500 dark:text-stone-400 mb-2 block font-normal">
+            <span className="section-tag text-lg">
               Frequently asked questions
             </span>
-            <h2 className="text-3xl sm:text-4xl font-sans font-normal tracking-[-0.035em] text-stone-950 dark:text-stone-50 leading-[1.15] text-balance">
+            <h2 className="h2-site text-4xl sm:text-5xl lg:text-6xl text-balance">
               Questions? Good.
             </h2>
-            <p className="mt-2.5 text-base sm:text-lg text-stone-600 dark:text-stone-400 font-normal leading-relaxed tracking-[-0.01em]">
+            <p className="body-lg-site mt-2.5">
               A few things you might want to know.
             </p>
           </div>
@@ -40,15 +40,14 @@ export default function FAQSection() {
               href="/faq"
               className="text-sm sm:text-base font-medium text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-stone-50 underline underline-offset-4 decoration-stone-300 dark:decoration-stone-600 hover:decoration-stone-950 dark:hover:decoration-stone-50 transition-colors"
             >
-              View all FAQs →
+              View all FAQs
             </Link>
           </div>
 
           <p className="mt-8 w-full text-xs sm:text-sm text-stone-500 dark:text-stone-500 leading-relaxed text-center">
             Bluepin is an educational health companion. It is not a medical
-            device and does not provide medical advice, diagnosis, or
-            treatment. Always consult a qualified doctor for decisions about
-            your health.
+            device and does not provide medical advice, diagnosis, or treatment.
+            Always consult a qualified doctor for decisions about your health.
           </p>
         </Reveal>
       </div>

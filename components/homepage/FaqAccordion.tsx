@@ -7,13 +7,13 @@ export default function FaqAccordion({ items }: { items: FaqItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className="w-full border-t border-stone-200/80 dark:border-white/10">
+    <div className="w-full border-t border-line">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
         return (
           <div
             key={item.q}
-            className="border-b border-stone-200/80 dark:border-white/10"
+            className="border-b border-line"
           >
             <button
               type="button"
@@ -21,7 +21,7 @@ export default function FaqAccordion({ items }: { items: FaqItem[] }) {
               aria-expanded={isOpen}
               className="w-full py-5 sm:py-6 flex items-center justify-between text-left gap-6 group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-400 rounded-sm"
             >
-              <span className="text-lg sm:text-xl font-sans font-medium text-stone-950 dark:text-stone-50 tracking-[-0.015em] group-hover:text-stone-600 dark:group-hover:text-stone-300 transition-colors">
+              <span className="text-lg sm:text-xl font-sans font-medium text-ink tracking-[-0.015em] group-hover:text-ink-2 transition-colors">
                 {item.q}
               </span>
               <span
@@ -34,7 +34,7 @@ export default function FaqAccordion({ items }: { items: FaqItem[] }) {
 
             <div className="faq-answer" data-open={isOpen} aria-hidden={!isOpen}>
               <div>
-                <div className="pb-6 pr-8 sm:pr-12 text-[15px] sm:text-base text-stone-600 dark:text-stone-400 font-normal leading-[1.65] tracking-[-0.01em]">
+                <div className="pb-6 pr-8 sm:pr-12 body-site">
                   <p className="m-0">{item.answer}</p>
                   {item.sources && item.sources.length > 0 && (
                     <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1">

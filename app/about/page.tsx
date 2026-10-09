@@ -9,18 +9,19 @@ import {
 } from "@/components/homepage";
 
 export const metadata: Metadata = {
-  title:
-    "About Bluepin | AI Health Companion for Medical Reports & Glucose Tracking",
+  title: "About Bluepin | AI Health Companion for Diabetes",
   description:
-    "Bluepin is an AI-powered health companion built to help you record glucose readings, organize medical reports, analyze biomarkers, and understand how your organs are doing over time.",
+    "Bluepin is an AI-powered health companion that records glucose, organises medical reports, analyses biomarkers and tracks organ health.",
+  alternates: {
+    canonical: "https://bluepin.in/about",
+  },
   openGraph: {
     type: "website",
     url: "https://bluepin.in/about",
-    title:
-      "About Bluepin | AI Health Companion for Medical Reports & Glucose Tracking",
+    title: "About Bluepin | AI Health Companion for Diabetes",
     description:
-      "Bluepin is an AI-powered health companion built to help you record glucose readings, organize medical reports, analyze biomarkers, and understand how your organs are doing over time.",
-    images: ["https://bluepin.in/Bluepin.png"],
+      "Bluepin is an AI-powered health companion that records glucose, organises medical reports, analyses biomarkers and tracks organ health.",
+    images: ["https://bluepin.in/og-image.png"],
   },
 };
 
@@ -30,7 +31,7 @@ export default function AboutPage() {
       <AmbientCurves />
 
       <main className="relative">
-        <FeatureShowcase />
+        <FeatureShowcase headingAsH1 />
         <MultiOrganProblem />
         <HowItWorksClassic />
       </main>

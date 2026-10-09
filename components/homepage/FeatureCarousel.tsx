@@ -74,7 +74,6 @@ export default function FeatureCarousel({
                     alt={`${title} Screenshot ${idx + 1}`}
                     fill
                     sizes="(max-width: 768px) 256px, 320px"
-                    priority={idx === 0}
                     className="object-cover"
                   />
                 </motion.div>
