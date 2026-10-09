@@ -16,7 +16,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="relative w-full bg-paper/90 backdrop-blur-md sticky top-0 z-50 border-b border-line transition-colors">
+    <header className="relative w-full bg-paper/90 backdrop-blur-md top-0 z-50 border-b border-line transition-colors">
       <div className="max-w-wide mx-auto px-4 sm:px-8 h-16 md:h-20 flex items-center justify-between gap-2 sm:gap-4">
         <Link
           href="/"
@@ -26,7 +26,7 @@ export default function Navbar() {
         >
           <div className="relative w-6 h-6 sm:w-7 sm:h-7 transition-transform group-hover:scale-[1.03]">
             <Image
-              src="/Bluepin.png"
+              src="/bluepin-96.webp"
               alt="Bluepin Logo"
               width={28}
               height={28}

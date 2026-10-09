@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "Contact Bluepin | Get in touch",
     description:
       "Have a question, feedback, or need help with Bluepin? Reach out to us at marketing@bluepin.in or visit us at 34 Pavilion, Sector 34, Noida, Uttar Pradesh.",
-    images: ["https://bluepin.in/Bluepin.png"],
+    images: ["https://bluepin.in/bluepin.webp"],
   },
 };
 

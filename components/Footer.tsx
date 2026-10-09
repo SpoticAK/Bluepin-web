@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="max-w-wide mx-auto px-6 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-[13px] text-ink-2 font-normal">
         <div className="flex items-center gap-2.5">
           <Image
-            src="/Bluepin.png"
+            src="/bluepin-96.webp"
             alt="Bluepin Logo"
             className="w-4 h-4 grayscale opacity-60"
             width={16}

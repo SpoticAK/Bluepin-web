@@ -1,17 +1,46 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function LoopAnimation() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(true); // Optimistically assume autoplay works
+  // Defer the 564KB video until it is near the viewport so it doesn't
+  // compete with LCP bytes during initial load.
+  const [videoSrc, setVideoSrc] = useState<string | undefined>(undefined);
+  // Responsive cover shown until playback starts. next/image generates
+  // right-sized variants (srcset) and preloads with fetchpriority=high,
+  // which a <video poster> attribute cannot do.
+  const [showCover, setShowCover] = useState(true);
+
+  // Load the video source once the player is close to entering the viewport.
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setVideoSrc("/anim.mp4");
+          io.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   // Sync React state with actual video native events (crucial for iOS blocked autoplay)
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    const handlePlay = () => setIsPlaying(true);
+    const handlePlay = () => {
+      setIsPlaying(true);
+      setShowCover(false);
+    };
     const handlePause = () => setIsPlaying(false);
 
     video.addEventListener("play", handlePlay);
@@ -37,11 +66,22 @@ export default function LoopAnimation() {
   };
 
   return (
-    <div className="relative w-full h-full group">
+    <div ref={wrapRef} className="relative w-full h-full group">
+      <Image
+        src="/poster.webp"
+        alt="Preview of the Bluepin app demo video"
+        fill
+        priority
+        fetchPriority="high"
+        sizes="(max-width: 768px) 100vw, 1152px"
+        className={`object-cover transition-opacity duration-500 ${
+          showCover ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      />
       <video
         ref={videoRef}
-        src="/anim.mp4"
-        poster="/poster.webp"
+        src={videoSrc}
+        preload="none"
         autoPlay
         loop
         muted

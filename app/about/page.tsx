@@ -20,7 +20,7 @@ export const metadata: Metadata = {
       "About Bluepin | AI Health Companion for Medical Reports & Glucose Tracking",
     description:
       "Bluepin is an AI-powered health companion built to help you record glucose readings, organize medical reports, analyze biomarkers, and understand how your organs are doing over time.",
-    images: ["https://bluepin.in/Bluepin.png"],
+    images: ["https://bluepin.in/bluepin.webp"],
   },
 };
 

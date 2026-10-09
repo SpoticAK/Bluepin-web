@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Reveal from "./Reveal";
 
 // WhatsApp Icon (official mark silhouette)
 function WhatsAppIcon({ className = "w-4 h-4" }: { className?: string }) {
@@ -20,7 +19,9 @@ export default function Hero() {
     <section id="hero" className="w-full bg-paper">
       <div className="container-site">
         <div className="container-prose pt-12 sm:pt-16 md:pt-20 pb-14 sm:pb-16 md:pb-20 flex flex-col items-center text-center">
-          <Reveal className="flex flex-col items-center">
+          {/* Above-the-fold content renders immediately (no Reveal gate)
+              so the LCP headline can paint without waiting for JS. */}
+          <div className="flex flex-col items-center">
             {/* 1. Hero Headline */}
             <h1 className="text-[2.85rem] sm:text-6xl md:text-7xl lg:text-[5rem] font-sans font-normal tracking-[-0.038em] text-ink leading-[1.07] max-w-3xl">
               Manage diabetes the smarter way.
@@ -76,7 +77,7 @@ export default function Hero() {
                 </li>
               </ol>
             </div>
-          </Reveal>
+          </div>
         </div>
       </div>
     </section>
