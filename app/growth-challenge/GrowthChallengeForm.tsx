@@ -1,5 +1,5 @@
 "use client";
-
+import * as z from "zod";
 import {
   useEffect,
   useMemo,
@@ -17,6 +17,7 @@ import {
   Loader2,
   LockKeyhole,
   RefreshCw,
+  ShareIcon,
   ShieldCheck,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -99,51 +100,31 @@ function normalizeLinkedinUrl(value: string): string | null {
   }
 }
 
+const formSchema = z.object({
+  name: z
+    .string()
+    .trim()
+    .min(1, "Please enter your full name.")
+    .max(80, "Please keep your name under 80 characters."),
+  email: z.email("Enter a valid email address."),
+  age: z.string().trim().min(1, "Please enter your age."),
+  linkedin: z
+    .string()
+    .trim()
+    .min(1, "Please enter your LinkedIn profile URL.")
+    .pipe(z.httpUrl("Enter a valid URL, including https://")),
+});
+
 function validate(values: FormValues) {
+  const parsed = formSchema.safeParse(values);
+  if (parsed.success) return { errors: {} as FormErrors, data: parsed.data };
+
   const errors: FormErrors = {};
-  const name = values.name.trim().replace(/\s+/g, " ");
-  const email = values.email.trim().toLowerCase();
-  const age = values.age.trim();
-  const ageNumber = Number(age);
-  const linkedin = normalizeLinkedinUrl(values.linkedin);
-
-  if (!name) {
-    errors.name = "Please enter your full name.";
-  } else if (name.length > 80) {
-    errors.name = "Please keep your name under 80 characters.";
-  } else if (/[\u0000-\u001F\u007F]/.test(name)) {
-    errors.name = "Please use only letters, spaces, and punctuation.";
+  for (const issue of parsed.error.issues) {
+    const field = issue.path[0] as keyof FormValues;
+    errors[field] ??= issue.message; // keep the first message per field
   }
-
-  if (!email) {
-    errors.email = "Please enter your email address.";
-  } else if (
-    email.length > 254 ||
-    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-  ) {
-    errors.email = "Enter a valid email address.";
-  }
-
-  if (!age) {
-    errors.age = "Please enter your age.";
-  } else if (!Number.isInteger(ageNumber) || ageNumber < 13 || ageNumber > 120) {
-    errors.age = "Enter an age between 13 and 120.";
-  }
-
-  if (!values.linkedin.trim()) {
-    errors.linkedin = "Please enter your LinkedIn profile URL.";
-  } else if (!linkedin) {
-    errors.linkedin =
-      "Enter a valid LinkedIn profile, like linkedin.com/in/your-name.";
-  }
-
-  return {
-    errors,
-    normalizedName: name,
-    normalizedEmail: email,
-    normalizedAge: ageNumber,
-    normalizedLinkedin: linkedin,
-  };
+  return { errors, data: null };
 }
 
 let storedReferralRaw: string | null | undefined;
@@ -221,8 +202,7 @@ function parseSavedReferral(raw: string | null): SavedReferral | null {
       isActive: parsed.isActive !== false,
       created: parsed.created === true,
       reused: parsed.reused === true,
-      savedAt:
-        typeof parsed.savedAt === "number" ? parsed.savedAt : Date.now(),
+      savedAt: typeof parsed.savedAt === "number" ? parsed.savedAt : Date.now(),
     };
   } catch {
     return null;
@@ -296,11 +276,11 @@ export default function GrowthChallengeForm() {
     setGeneralError(null);
     setCopyError(false);
 
-    const result = validate(values);
-    setErrors(result.errors);
+    const { errors: validationErrors, data } = validate(values);
+    setErrors(validationErrors);
 
-    if (Object.keys(result.errors).length > 0) {
-      const firstInvalidField = Object.keys(result.errors)[0];
+    if (!data) {
+      const firstInvalidField = Object.keys(validationErrors)[0];
       document.getElementById(`applicant-${firstInvalidField}`)?.focus();
       return;
     }
@@ -312,10 +292,10 @@ export default function GrowthChallengeForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          applicantName: result.normalizedName,
-          applicantEmail: result.normalizedEmail,
-          applicantAge: result.normalizedAge,
-          applicantLinkedinUrl: result.normalizedLinkedin,
+          applicantName: data.name,
+          applicantEmail: data.email,
+          applicantAge: data.age,
+          applicantLinkedinUrl: data.linkedin,
         }),
       });
 
@@ -361,11 +341,11 @@ export default function GrowthChallengeForm() {
         applicantName:
           typeof payload.applicantName === "string"
             ? payload.applicantName
-            : result.normalizedName,
+            : data.name,
         applicantEmail:
           typeof payload.applicantEmail === "string"
             ? payload.applicantEmail
-            : result.normalizedEmail,
+            : data.email,
         isActive: payload.isActive !== false,
         created: payload.created === true,
         reused: payload.reused === true,
@@ -383,8 +363,8 @@ export default function GrowthChallengeForm() {
         body: JSON.stringify({
           name: referral.applicantName,
           email: referral.applicantEmail,
-          age: result.normalizedAge,
-          linkedinUrl: result.normalizedLinkedin,
+          age: data.age,
+          linkedinUrl: data.linkedin,
           code: referral.code,
           referralUrl: referral.referralUrl,
           isActive: referral.isActive,
@@ -786,26 +766,5 @@ export default function GrowthChallengeForm() {
         <span>Used only to administer the challenge.</span>
       </p>
     </form>
-  );
-}
-
-function ShareIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <circle cx="18" cy="5" r="3" />
-      <circle cx="6" cy="12" r="3" />
-      <circle cx="18" cy="19" r="3" />
-      <path d="m8.6 10.5 6.8-4" />
-      <path d="m8.6 13.5 6.8 4" />
-    </svg>
   );
 }

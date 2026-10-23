@@ -1,31 +1,32 @@
 import { NextResponse } from "next/server";
+import * as z from "zod";
 import { syncApplicantToSheet } from "@/lib/googleSheets";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const REFERRAL_URL_PATTERN =
-  /^https:\/\/app\.bluepin\.in\/\?ref=([A-Z0-9_-]{2,30})$/;
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const NO_STORE = { "Cache-Control": "no-store" };
 
-function asTrimmedString(value: unknown): string {
-  return typeof value === "string" ? value.trim() : "";
-}
+const applicantSchema = z.object({
+  name: z.string(),
+  email: z.email(),
+  age: z.coerce.number().int().min(13).max(120),
+  linkedinUrl: z.httpUrl().max(300),
+  code: z.string().trim().toUpperCase().max(30),
+  referralUrl: z.httpUrl().max(300),
+  isActive: z.unknown().transform((v) => v !== false),
+});
 
-function isValidLinkedinUrl(value: string): boolean {
-  try {
-    const url = new URL(value);
-    if (url.protocol !== "https:" && url.protocol !== "http:") return false;
+const FIELD_ERRORS: Record<string, string> = {
+  name: "A valid full name is required.",
+  email: "A valid email address is required.",
+  age: "A valid age is required.",
+  linkedinUrl: "A valid LinkedIn profile URL is required.",
+  referralUrl: "A valid referral link is required.",
+};
 
-    const host = url.hostname.toLowerCase();
-    if (host !== "linkedin.com" && !host.endsWith(".linkedin.com")) {
-      return false;
-    }
-
-    return /^\/(in|pub)\//i.test(url.pathname);
-  } catch {
-    return false;
-  }
+function badRequest(error: string) {
+  return NextResponse.json({ error }, { status: 400, headers: NO_STORE });
 }
 
 export async function POST(request: Request) {
@@ -34,83 +35,27 @@ export async function POST(request: Request) {
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json(
-      { error: "Invalid request body." },
-      { status: 400, headers: { "Cache-Control": "no-store" } },
-    );
+    return badRequest("Invalid request body.");
   }
 
   if (!body || typeof body !== "object") {
-    return NextResponse.json(
-      { error: "Invalid request body." },
-      { status: 400, headers: { "Cache-Control": "no-store" } },
-    );
+    return badRequest("Invalid request body.");
   }
 
-  const input = body as Record<string, unknown>;
-  const name = asTrimmedString(input.name).replace(/\s+/g, " ");
-  const email = asTrimmedString(input.email).toLowerCase();
-  const linkedinUrl = asTrimmedString(input.linkedinUrl);
-  const code = asTrimmedString(input.code).toUpperCase();
-  const referralUrl = asTrimmedString(input.referralUrl);
-  const age = Number(input.age);
-  const isActive = input.isActive !== false;
+  const parsed = applicantSchema.safeParse(body);
 
-  if (!name || name.length > 80) {
-    return NextResponse.json(
-      { error: "A valid full name is required." },
-      { status: 400, headers: { "Cache-Control": "no-store" } },
-    );
+  if (!parsed.success) {
+    const field = String(parsed.error.issues[0]?.path[0] ?? "");
+    return badRequest(FIELD_ERRORS[field] ?? "Invalid request body.");
   }
 
-  if (
-    !email ||
-    email.length > 254 ||
-    !EMAIL_PATTERN.test(email)
-  ) {
-    return NextResponse.json(
-      { error: "A valid email address is required." },
-      { status: 400, headers: { "Cache-Control": "no-store" } },
-    );
-  }
-
-  if (!Number.isInteger(age) || age < 13 || age > 120) {
-    return NextResponse.json(
-      { error: "A valid age is required." },
-      { status: 400, headers: { "Cache-Control": "no-store" } },
-    );
-  }
-
-  if (!linkedinUrl || linkedinUrl.length > 300 || !isValidLinkedinUrl(linkedinUrl)) {
-    return NextResponse.json(
-      { error: "A valid LinkedIn profile URL is required." },
-      { status: 400, headers: { "Cache-Control": "no-store" } },
-    );
-  }
-
-  const referralMatch = REFERRAL_URL_PATTERN.exec(referralUrl);
-  if (!referralMatch || referralMatch[1] !== code) {
-    return NextResponse.json(
-      { error: "A valid referral link is required." },
-      { status: 400, headers: { "Cache-Control": "no-store" } },
-    );
-  }
-
-  const result = await syncApplicantToSheet({
-    name,
-    email,
-    age,
-    linkedinUrl,
-    code,
-    referralUrl,
-    isActive,
-  });
+  const result = await syncApplicantToSheet(parsed.data);
 
   return NextResponse.json(
     { ok: result.ok, reason: result.reason ?? null },
     {
       status: result.ok ? 200 : 202,
-      headers: { "Cache-Control": "no-store" },
+      headers: NO_STORE,
     },
   );
 }
